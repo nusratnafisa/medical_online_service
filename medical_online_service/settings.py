@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'doctors.apps.DoctorsConfig',
+    'hospital.apps.HospitalConfig',
+    'appointment.apps.AppointmentConfig',
+    'diagonostic_test.apps.DiagonosticTestConfig',
+    'ambulance.apps.AmbulanceConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -54,7 +60,7 @@ ROOT_URLCONF = 'medical_online_service.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

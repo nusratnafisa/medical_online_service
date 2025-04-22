@@ -16,7 +16,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from account import views as a_views
+from doctors import views as d_views
+from appointment import views as ap_views
+from hospital import views as h_views
+from ambulance import views as am_views
+from diagonostic_test import views as dt_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('user_profile/',a_views.user_profile,name='user_profile'),
+    path('login/', a_views.login, name='login'),
+    path('register/', a_views.register, name='register'),
+    path('', d_views.home, name='home'),
+    path('doc_search/', d_views.doc_search, name='doc_search'),
+    path('doctor_list/', d_views.doctor_list, name='doctor_list'),
+    path('book_appointment/', ap_views.book_appointment, name='book_appointment'),
+    path('hospital_info/', h_views.hospital_info, name='hospital_info'),
+    path('hospital_list/', h_views.hospital_list, name='hospital_list'),
+    path('ambulance_req/', am_views.ambulance_req, name='ambulance_req'),
+    path('test_available_list/', dt_views.test_available_list, name='test_available_list'),
+    path('test_search/', dt_views.test_search, name='test_search'),
+
+
 ]
