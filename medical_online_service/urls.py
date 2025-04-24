@@ -15,6 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from . import settings
+from django.conf.urls.static import static
 from django.urls import path
 from account import views as a_views
 from doctors import views as d_views
@@ -40,4 +42,5 @@ urlpatterns = [
     path('test_search/', dt_views.test_search, name='test_search'),
 
 
-]
+] +static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+

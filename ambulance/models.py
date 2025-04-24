@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 #driver info admin dekhte parbe shudhu
 class Driver(models.Model):
     name = models.TextField(blank=True,null= True)
+    profile_pic = models.ImageField(upload_to='doc_img/', blank=True, null=True)
     age = models.IntegerField(blank=True,null= True)
     salary = models.IntegerField(blank=True,null= True)
 

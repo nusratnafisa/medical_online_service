@@ -7,6 +7,7 @@ from django.db import models
 # doctor list show korbe db table doctor
 class Doctor(models.Model):
     name = models.TextField(blank=True, null=True)
+    profile_pic = models.ImageField(upload_to='doc_img/',blank=True,null=True)
     gender = models.CharField(max_length=10, blank=True, null=True)
     education = models.TextField(blank=True, null=True)  # institution name jekhane poralikha korse
     specialization = models.TextField(blank=True, null=True)

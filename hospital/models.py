@@ -5,6 +5,7 @@ from django.db import models
 #hospital info
 class Hospital(models.Model):
     name = models.TextField(blank= True,null=True)
+    profile_pic = models.ImageField(upload_to='doc_img/',blank=True, null=True)
     address = models.TextField(blank= True,null=True)
     city = models.CharField(max_length=100,blank= True,null=True)
     hotline = models.CharField(max_length=20,blank= True,null=True)
