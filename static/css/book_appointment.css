@@ -8,6 +8,8 @@
     font-family: 'Segoe UI', sans-serif;
   }
 
+
+
   /* Doctor Profile Section */
   .doctor-profile-section {
     background: white;
@@ -16,6 +18,9 @@
     padding: 30px;
     align-self: start;
   }
+
+
+
 
   .doctor-image-container {
     width: 200px;
@@ -83,6 +88,9 @@
     padding: 30px;
   }
 
+
+
+  
   .appointment-form-section h2 {
     color: #1a4b8c;
     font-size: 22px;
@@ -151,3 +159,171 @@
       height: 180px;
     }
   }
+
+
+
+
+/* ===== OVERRIDE EVERYTHING - STACKED LAYOUT ===== */
+.appointment-container {
+  display: block !important; /* Kills grid/flex */
+  padding: 20px !important;
+}
+
+.doctor-profile-section, 
+.appointment-form-section {
+  width: 100% !important;
+  float: none !important; /* Prevents floating */
+  margin: 0 auto 30px !important; /* Adds spacing */
+  clear: both !important; /* Forces stacking */
+}
+
+/* Mobile responsiveness (keeps your existing media query) */
+@media (max-width: 768px) {
+  .appointment-container {
+    padding: 15px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== VIBRANT HOSPITAL COLOR SCHEME ===== */
+.appointment-container {
+  background-color: #f8fafc; /* Very light blue-gray */
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 120, 180, 0.08);
+}
+
+/* Doctor Profile Section */
+.doctor-profile-section {
+  background: white;
+  border: 1px solid #e1f0fa; /* Light blue border */
+  box-shadow: 0 4px 20px rgba(72, 172, 232, 0.1);
+}
+
+.doctor-info h1 {
+  color: #0d4b7a; /* Deep hospital blue */
+}
+
+.hospital-info {
+  border-top: 1px solid #d0e8f7; /* Lighter blue divider */
+}
+
+/* Appointment Form Section */
+.appointment-form-section {
+  background: white;
+  border: 1px solid #e1f0fa;
+}
+
+.appointment-form-section h2 {
+  color: #1a7bb9; /* Vibrant blue */
+  border-bottom: 2px solid #c1e1fb;
+}
+
+.form-group label {
+  color: #4a6b88; /* Soft blue-gray */
+}
+
+.form-group input,
+.form-group select {
+  border: 1px solid #c9e0f1;
+  background-color: #e9eff3;
+}
+
+.form-group input:focus {
+  border-color: #5cb0ff;
+  box-shadow: 0 0 0 3px rgba(92, 176, 255, 0.2);
+}
+
+.submit-btn {
+  background: #1a7bb9 !important; /* Vibrant blue */
+  transition: all 0.3s;
+}
+
+.submit-btn:hover {
+  background: #0d5a8a !important;
+  transform: translateY(-2px);
+}
+
+/* Additional Vibrant Elements */
+.doctor-image-container {
+  border: 3px solid #d0e8f7;
+}
+
+.qualifications {
+  color: #5a7a94;
+}
+
+.specialty-info h2 {
+  color: #1a7bb9;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .appointment-container {
+    background-color: white;
+    box-shadow: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== COMPACT FORM FIELDS ===== */
+.appointment-form-section {
+  padding: 20px !important; /* Reduce form padding */
+}
+
+.form-group {
+  margin-bottom: 12px !important; /* Reduce spacing between fields */
+}
+
+.form-group label {
+  font-size: 14px !important; /* Smaller label text */
+  margin-bottom: 6px !important;
+}
+
+.form-group input, 
+.form-group select {
+  padding: 8px 12px !important; /* Smaller input padding */
+  font-size: 14px !important; /* Smaller input text */
+  height: auto !important; /* Remove fixed height */
+}
+
+/* Date input placeholder alignment */
+input[type="date"]::before {
+  content: attr(placeholder);
+  color: #999;
+  margin-right: 0.5em;
+}
+input[type="date"]:focus::before {
+  content: '';
+}

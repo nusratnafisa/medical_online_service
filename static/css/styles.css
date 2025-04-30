@@ -104,3 +104,107 @@ body {
 
 
   }
+
+
+
+
+
+
+/* Enhanced Login/Register Button */
+.login-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px !important;
+  border-radius: 25px !important;
+  background: linear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%) !important;
+  color: white !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(26, 123, 185, 0.3);
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #0d5a8a 0%, #1a7bb9 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 123, 185, 0.4);
+  color: white !important;
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* Font Awesome icon */
+.login-btn i {
+  font-size: 16px;
+}
+
+/* If you need to override Bootstrap's .btn-secondary */
+.nav-link.btn-secondary {
+  background: transparent !important;
+  border: none !important;
+}
+
+
+
+
+
+
+
+
+  /* =====FOOTER ===== */
+.site-footer {
+  background: #3f80d6; /* Dark blue */
+  color: white;
+  padding: 40px 0 20px;
+  margin-top: 50px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.footer-section h3 {
+  color: #c1e1fb; /* Light blue */
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  line-height: 1.8;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #5cb0ff; /* Bright blue */
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 30px;
+  border-top: 1px solid #2d6cbf;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

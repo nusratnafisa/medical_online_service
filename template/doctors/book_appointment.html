@@ -8,7 +8,7 @@
     <div class="doctor-image-container">
       <img src="{% if doctor.profile_pic %}{{ doctor.profile_pic.url }}{% else %}{% static 'images/default-doctor.jpg' %}{% endif %}"
            alt="{{ doctor.name }}"
-           style="width: 250px; height: 250px; object-fit: cover; border-radius: 15px;">
+           style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px;">
     </div>
 
     <div class="doctor-info">

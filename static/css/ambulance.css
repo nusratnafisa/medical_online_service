@@ -1,0 +1,126 @@
+/* Ambulance Request Form */
+.ambulance-request-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .ambulance-header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1a4b8c;
+  }
+  
+  .ambulance-header h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .ambulance-header i {
+    margin-right: 10px;
+    color: #3c6ae7;
+  }
+  
+  .ambulance-header p {
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .ambulance-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-group label {
+    font-weight: 500;
+    color: #444;
+    font-size: 15px;
+  }
+  
+  .input-with-icon {
+    position: relative;
+  }
+  
+  .input-with-icon i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1a7bb9;
+  }
+  
+  .input-with-icon input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s;
+  }
+  
+  .input-with-icon input:focus {
+    border-color: #1a7bb9;
+    box-shadow: 0 0 0 3px rgba(26, 123, 185, 0.2);
+    outline: none;
+  }
+  
+  .submit-request-btn {
+    background: #3c91ea;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .submit-request-btn:hover {
+    background: #3aa3d8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+    
+    .ambulance-request-container {
+      padding: 20px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+  

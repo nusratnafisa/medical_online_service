@@ -7,7 +7,7 @@
 
   /* Search bar wrapper */
   .doctor-search-bar {
-    background-color: #277fe9; /* Dark blue background */
+    background-color: #3088f3; /* Dark blue background */
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     width: 100%;
@@ -265,14 +265,30 @@
   /* Doctors List Container */
 
   /* Doctor Photo Column, doctor img might*/
+  /* ****************shows all doc in one row
 .doctors-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 25px;
   margin-top: 30px;
 }
-
+*/
 /* Individual Doctor Card */
+/* Doctors List Container - Single Column Layout */
+.doctors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 30px;
+  max-width: 900px; /* Optional: Limits width for better readability */
+  margin-left: auto;
+  margin-right: auto; /* Centers the container */
+}
+
+/* Ensure each card takes full width */
+.doctor-card {
+  width: 100%;
+}
 .doctor-card {
   background: #ffffff;
   border-radius: 10px;
@@ -281,6 +297,9 @@
   display: flex;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
+
 
 .doctor-card:hover {
   transform: translateY(-5px);
@@ -388,6 +407,8 @@
   margin-left: 5px;
 }
 
+
+
 /* Book Appointment Button */
 .book-btn {
   width: 100%;
@@ -404,6 +425,7 @@
 
 .book-btn:hover {
   background-color: #277ffb; /* Darker orange changed*/
+  text-decoration: none !important;
 }
 
 /* No Results Message */
@@ -429,4 +451,92 @@
     width: 100%;
     height: 200px;
   }
+}
+
+
+
+
+
+
+
+
+
+/* Add this at the very end of your CSS file */
+.doctor-image {
+  width: 250px !important;
+  height: 250px !important;
+  margin: 0 auto 10px !important;
+}
+
+.doctor-card {
+  align-items: center !important;
+}
+
+
+
+
+
+
+
+/* ===== PROFESSIONAL DOCTOR SEARCH BAR ===== *//*have to edit this code , may delete later*/
+.doctor-search-bar {
+  background: linear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  background: white;
+  border: 1px solid #c9e0f1;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.filter-dropdown {
+  background: white;
+  border: 1px solid #c9e0f1;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.search-button {
+  background: #0d5a8a;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.search-button:hover {
+  background: #0c4c75;
+}
+
+.reset-button {
+  background: #f8fafc;
+  color: #4a6b88;
+  border: 1px solid #ddd;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.reset-button:hover {
+  background: #e8ecef;
+}
+
+/* Focus states */
+.search-input:focus,
+.filter-dropdown:focus {
+  outline: none;
+  border-color: #5cb0ff;
+  box-shadow: 0 0 0 3px rgba(92, 176, 255, 0.2);
 }
