@@ -18,7 +18,7 @@ class Doctor(models.Model):
     # Related hospitals through Dept model
     hospitals = models.ManyToManyField('hospital.Hospital', through='Dept')
     def __str__(self):
-        return "%s object (%s)" % (self.__class__.__name__, self.pk)
+        return self.name
 
 
 

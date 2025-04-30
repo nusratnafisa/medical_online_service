@@ -1,0 +1,542 @@
+/* Main container */
+.doctor-search-container {
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+  }
+
+  /* Search bar wrapper */
+  .doctor-search-bar {
+    background-color: #3088f3; /* Dark blue background */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+  }
+
+  /* Title */
+  .search-title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* Form layout */
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Search row (main search inputs) */
+  .search-row {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+  }
+
+  /* Filter row (dropdown filters) */
+  .filter-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Search type dropdown */
+  .search-type {
+    padding: 12px 15px;
+    border: 1px solid #2d85f9;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: white;
+    min-width: 120px;
+    color: #333;
+  }
+
+  /* Search input field */
+  .search-input {
+    flex-grow: 1;
+    padding: 12px 20px;
+    font-size: 14px;
+    border: 1px solid #2d6cbf;
+    border-radius: 6px;
+  }
+
+  /* Search button */
+  .search-button {
+    padding: 12px 30px;
+    background-color: #3557ff; /* Orange accent color */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .search-button:hover {
+    background-color: #2bbfe0;
+  }
+  .decorative-button {
+    padding: 12px 24px;
+    background-color: #dde7f0;
+    color: rgb(21, 16, 16);
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: default; /* Removes pointer cursor */
+
+    user-select: none; /* Prevents text selection */
+    display: inline-block;
+    margin-left: 10px;
+  }
+  /* Filter dropdowns */
+  .filter-dropdown {
+    padding: 10px 15px;
+    border: 1px solid #2d6cbf;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: white;
+    min-width: 150px;
+    color: #333;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .search-row {
+      flex-direction: column;
+    }
+
+    .search-button {
+      width: 100%;
+    }
+
+    .filter-row {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .filter-dropdown {
+      width: 100%;
+    }
+  }
+
+
+
+
+
+
+/*for testing, might delete (doctor_list code)*/
+/* Doctor Profile Card Container */
+.doctor-profile-card {
+    display: flex;
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  /* Doctor Photo Column
+  .doctor-photo-column {
+    width: 300px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+    */
+    /* Replace the existing .doctor-image styles with: */
+.doctor-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 20px auto; /* Centers the image in its container */
+}
+
+/* Update the photo column to: */
+.doctor-photo-column {
+  width: 250px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+  /* Doctor Info Column */
+  .doctor-info-column {
+    flex: 1;
+    padding: 30px;
+  }
+
+  /* Header Section */
+  .doctor-header h1 {
+    color: #1a4b8c; /* Dark blue */
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+
+  .qualifications {
+    color: #666;
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  /* Specialty Section */
+  .doctor-specialty h2 {
+    color: #1a4b8c;
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+  }
+
+  .doctor-specialty p {
+    margin: 8px 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Chamber Section */
+  .doctor-chamber h2 {
+    color: #1a4b8c;
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+  }
+
+  .doctor-chamber p {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+
+  /* Divider Line */
+  .divider {
+    height: 1px;
+    background: #e0e0e0;
+    margin: 20px 0;
+  }
+
+  /* Appointment Button */
+  .appointment-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #6bbfe6; /* Orange changed*/
+    color: rgb(247, 254, 255);
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+  }
+
+  .appointment-btn:hover {
+    background-color: #277ffb; /* Darker orange cahnged */
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .doctor-profile-card {
+      flex-direction: column;
+    }
+
+    .doctor-photo-column {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+
+
+  /*not tested yet, after crud, must get tested*/
+  /* Doctors List Container */
+
+  /* Doctor Photo Column, doctor img might*/
+  /* ****************shows all doc in one row
+.doctors-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+*/
+/* Individual Doctor Card */
+/* Doctors List Container - Single Column Layout */
+.doctors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 30px;
+  max-width: 900px; /* Optional: Limits width for better readability */
+  margin-left: auto;
+  margin-right: auto; /* Centers the container */
+}
+
+/* Ensure each card takes full width */
+.doctor-card {
+  width: 100%;
+}
+.doctor-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Doctor Image */
+/*
+.doctor-image {
+  width: 120px;
+  background: #f5f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  */
+.doctor-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 20px auto; /* Centers the image in its container */
+}
+
+.doctor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Doctor Information */
+.doctor-info {
+  flex: 1;
+  padding: 20px;
+}
+
+.doctor-info h3 {
+  color: #1a4b8c; /* Dark blue */
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.qualifications {
+  color: #666;
+  font-size: 13px;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.specialty {
+  color: #1a4b8c;
+  font-weight: 600;
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.experience {
+  color: #666;
+  font-size: 14px;
+  margin: 5px 0 10px 0;
+}
+
+/* Hospital Info */
+.hospital-info {
+  margin: 15px 0;
+  padding: 10px 0;
+  border-top: 1px dashed #e0e0e0;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.hospital-info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.hospital-info p:first-child {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Services Tags */
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.service-tag {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.view-more {
+  color: #1a4b8c;
+  font-size: 12px;
+  text-decoration: none;
+  align-self: center;
+  margin-left: 5px;
+}
+
+
+
+/* Book Appointment Button */
+.book-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #6bbfe6; /* Orange changed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.book-btn:hover {
+  background-color: #277ffb; /* Darker orange changed*/
+  text-decoration: none !important;
+}
+
+/* No Results Message */
+.no-results {
+  text-align: center;
+  grid-column: 1 / -1;
+  color: #666;
+  padding: 40px;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .doctors-list {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-card {
+    flex-direction: column;
+  }
+
+  .doctor-image {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Add this at the very end of your CSS file */
+.doctor-image {
+  width: 250px !important;
+  height: 250px !important;
+  margin: 0 auto 10px !important;
+}
+
+.doctor-card {
+  align-items: center !important;
+}
+
+
+
+
+
+
+
+/* ===== PROFESSIONAL DOCTOR SEARCH BAR ===== *//*have to edit this code , may delete later*/
+.doctor-search-bar {
+  background: linear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  background: white;
+  border: 1px solid #c9e0f1;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.filter-dropdown {
+  background: white;
+  border: 1px solid #c9e0f1;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.search-button {
+  background: #0d5a8a;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.search-button:hover {
+  background: #0c4c75;
+}
+
+.reset-button {
+  background: #f8fafc;
+  color: #4a6b88;
+  border: 1px solid #ddd;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.reset-button:hover {
+  background: #e8ecef;
+}
+
+/* Focus states */
+.search-input:focus,
+.filter-dropdown:focus {
+  outline: none;
+  border-color: #5cb0ff;
+  box-shadow: 0 0 0 3px rgba(92, 176, 255, 0.2);
+}

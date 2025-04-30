@@ -1,4 +1,14 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
-  <h1>Home!</h1>
+{% load static %}
+
+
+<!--<img src="{% static 'image/bg.jpg' %}" class="w-100" style="max-height: 500px; object-fit: cover;" alt="Medical Banner"> -->
+
+
+<div class="centered-image-container" style="width: 1350px;">
+  <img src="{% static 'image/bg1.jpg' %}" alt="Centered Image">
+</div>
+
+
 {% endblock %}

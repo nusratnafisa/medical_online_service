@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 
 # Create your models here.
 #driver info admin dekhte parbe shudhu
@@ -26,7 +26,7 @@ class Ambulance(models.Model):
 
 #ambulance request form
 class AmbulanceRequest(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True,null= True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,blank=True,null= True)
     ambulance = models.ForeignKey(Ambulance, on_delete=models.CASCADE,blank=True,null= True)
     from_address = models.TextField(blank=True,null= True)
     to_address = models.TextField(blank=True,null= True)

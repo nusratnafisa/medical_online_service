@@ -1,4 +1,87 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-  <h1>doctor list</h1>
+
+<div class="doctor-search-container">
+  <div class="doctor-search-bar">
+    <h2 class="search-title">Find a Doctor</h2>
+
+    <form method="GET" action="{% url 'doctor_list' %}" class="search-form">
+      <div class="search-row">
+        <div class="decorative-button">Doctor</div>
+        <input type="text" class="search-input" placeholder="Search doctors..." name="doctor_name" value="{{ request.GET.doctor_name }}">
+        <input type="text" class="search-input" placeholder="Search Hospital..." name="hospital_name" value="{{ request.GET.hospital_name }}">
+
+      </div>
+
+      <div class="filter-row">
+        <select class="filter-dropdown" name="city">
+          <option value="">Select City</option>
+          {% for city in all_cities %}
+            <option value="{{ city }}" >{{ city }}</option>
+          {% endfor %}
+        </select>
+
+        <select class="filter-dropdown" name="speciality">
+          <option value="">Select Specialty</option>
+          {% for speciality in all_specialities %}
+            <option value="{{ speciality }}">{{ speciality }}</option>
+          {% endfor %}
+        </select>
+
+        <select class="filter-dropdown" name="gender">
+          <option value="">Select Gender</option>
+          <option value="male" >Male</option>
+          <option value="female" >Female</option>
+        </select>
+
+         <!--<button type="submit" class="search-button">Filter</button>-->
+        <button type="submit" class="search-button">Search</button>
+
+        <!--
+        <button><a href="{% url 'doctor_list' %}" class="reset-button">Reset</a></button> <!-- Reset Button --> 
+    
+      </div>
+    </form>
+  </div>
+</div>
+
+<br>
+
+<!-- Doctor Cards Section -->
+<div class="doctors-list">
+  {% if doctors %}
+    {% for doctor in doctors %}
+      <div class="doctor-card">
+        <div class="doctor-image">
+          {% if doctor.profile_pic %}
+            <img src="{{ doctor.profile_pic.url }}" alt="{{ doctor.name }}">
+          {% else %}
+            <img src="{% static 'default_profile.jpg' %}" alt="No Image">
+          {% endif %}
+        </div>
+
+        <div class="doctor-info">
+          <h3>{{ doctor.name }}</h3>
+          <p class="qualifications">{{ doctor.education }}</p>
+          <p class="specialty">{{ doctor.specialization }}</p>
+          <p class="city">{{ doctor.city }}</p>
+          <p class="gender">{{ doctor.gender }}</p>
+
+          <div class="hospital-info">
+            {% for hospital in doctor.hospitals.all %}
+              <p>{{ hospital.name }}</p>
+            {% endfor %}
+          </div>
+
+         <a href="{% url 'book_appointment' doctor.id %}" class="book-btn">Book Appointment</a>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="no-results">No doctors found matching your criteria.</p>
+  {% endif %}
+</div>
+
 {% endblock %}

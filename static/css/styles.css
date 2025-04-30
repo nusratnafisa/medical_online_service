@@ -1,0 +1,210 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc;
+    color: #2d3748;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    padding: 10px 8%;
+
+  }
+
+  .navbar-brand {
+
+    font-weight: 700;
+    color: #2b6cb0 !important;
+    font-size: 1.4 rem;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-link {
+    color: #4a5568 !important;
+    font-weight: 500;
+    margin: 0 10px;
+    padding: 8px 15px !important;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+
+
+
+  .navbar-nav {
+    display: flex;
+    flex: 1; /* Allows the navigation items to take available space */
+    justify-content: flex-start; /* Align the main items to the left */
+  }
+
+  /* Align the login/register button to the top-right */
+  .navbar-nav.ml-auto {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+  }
+
+
+
+
+  .nav-link:hover {
+    color: #067eff !important;
+  }
+
+  .nav-item.active .nav-link {
+    color: #6f869e !important;
+    font-weight: 600;
+  }
+
+
+
+  /* Dropdown Menu */
+  .dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 8px 0;
+  }
+
+  .dropdown-item {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    color: #4a5568;
+
+  }
+
+  .dropdown-item:hover {
+    background-color: #ebf4ff;
+    color: #2b6cb0;
+  }
+
+
+
+  .centered-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 5px auto;
+
+
+  }
+
+  .centered-image-container img {
+   width: 100%; /* Controls image size, adjust to your liking */
+    height: auto;
+    border-radius: 10px; /* Optional: for rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Optional: for styling */
+    background-size: cover;
+
+
+
+  }
+
+
+
+
+
+
+/* Enhanced Login/Register Button */
+.login-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px !important;
+  border-radius: 25px !important;
+  background: linear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%) !important;
+  color: white !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(26, 123, 185, 0.3);
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #0d5a8a 0%, #1a7bb9 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 123, 185, 0.4);
+  color: white !important;
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* Font Awesome icon */
+.login-btn i {
+  font-size: 16px;
+}
+
+/* If you need to override Bootstrap's .btn-secondary */
+.nav-link.btn-secondary {
+  background: transparent !important;
+  border: none !important;
+}
+
+
+
+
+
+
+
+
+  /* =====FOOTER ===== */
+.site-footer {
+  background: #3f80d6; /* Dark blue */
+  color: white;
+  padding: 40px 0 20px;
+  margin-top: 50px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.footer-section h3 {
+  color: #c1e1fb; /* Light blue */
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  line-height: 1.8;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #5cb0ff; /* Bright blue */
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 30px;
+  border-top: 1px solid #2d6cbf;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

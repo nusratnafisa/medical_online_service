@@ -1,4 +1,72 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
-  <h1>book_appointment</h1>
+
+<div class="appointment-container" style="padding: 20px;">
+  <!-- Doctor Profile Section -->
+  <div class="doctor-profile-section" style="display: flex; gap: 30px; margin-bottom: 30px;">
+    <div class="doctor-image-container">
+      <img src="{% if doctor.profile_pic %}{{ doctor.profile_pic.url }}{% else %}{% static 'images/default-doctor.jpg' %}{% endif %}"
+           alt="{{ doctor.name }}"
+           style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px;">
+    </div>
+
+    <div class="doctor-info">
+      <h1>{{ doctor.name }}</h1>
+      <p class="qualifications"><strong>Education:</strong> {{ doctor.education }}</p>
+      <h2><strong>Specialization:</strong> {{ doctor.specialization }}</h2>
+
+      <div class="hospital-info" style="margin-top: 10px;">
+        {% for hospital in doctor.hospitals.all %}
+          <p><strong>Hospital:</strong> {{ hospital.name }}</p>
+          <p><strong>Address:</strong> {{ hospital.address }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Appointment Form Section -->
+  <div class="appointment-form-section" style="max-width: 600px; margin: auto; padding: 20px; background: #f9f9f9; border-radius: 10px;">
+    <h2 style="text-align: center;">Book Appointment</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="appointment-form" style="margin-top: 20px;">
+      {% csrf_token %}
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="patient-name">Patient Name</label><br>
+        {{ form.patient_name }}
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="age">Age</label><br>
+        {{ form.age }}
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="gender">Gender</label><br>
+        {{ form.gender }}
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="birth-date">Birth Date</label><br>
+        {{ form.birth_date }}
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="contact-info">Contact Info</label><br>
+        {{ form.contact_info }}
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="appointment-date">Appointment Date</label><br>
+        {{ form.appointment_date }}
+      </div>
+
+      <button type="submit" class="submit-btn" style="width: 100%; padding: 10px; background-color: #4CAF50; border: none; color: white; border-radius: 5px; margin-top: 10px;">
+        Confirm Appointment
+      </button>
+    </form>
+  </div>
+</div>
+
 {% endblock %}
