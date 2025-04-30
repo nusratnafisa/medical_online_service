@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">medical online service</a>
+  <a class="navbar-brand" href="{% url 'home' %}">Medical Online Service</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,25 +10,56 @@
         <a class="nav-link" href="{% url 'home' %}">Home </a>
       </li>
 
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="{% url 'home' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           services
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'doc_search' %}">find doctor</a>
-          <a class="dropdown-item" href="{% url 'hospital_list' %}">find hospital</a>
-          <a class="dropdown-item" href="{% url 'ambulance_req' %}">ambulance service</a>
-          <a class="dropdown-item" href="{% url 'test_search' %}">test</a>
+          <a class="dropdown-item" href="{% url 'doctor_list' %}">Find Doctor</a>
+          <a class="dropdown-item" href="{% url 'hospital_list' %}">Find Hospital</a>
+          <a class="dropdown-item" href="{% url 'ambulance_req' %}">Ambulance Service</a>
+          <a class="dropdown-item" href="{% url 'test_available_list' %}">Diagnostic Test</a>
         </div>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link disabled" href="{% url 'home' %}">contact</a>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="{% url 'home' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Help
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'term_condition' %}">Term and Conditions</a>
+          <a class="dropdown-item" href="{% url 'privacy_policy' %}">Privacy policy</a>
+
+        </div>
       </li>
-    </ul>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="{% url 'home' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          contact
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">mail</a>
+          <a class="dropdown-item" href="#">phone num</a>
+
+        </div>
+      </li>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <!-- <a class="nav-link" href="{% url 'login' %}" style="font-weight: 600;">Login/Register</a> -->
+         <a class="nav-link btn btn-secondary text-white mx-1" href="{% url 'login' %}">Login/Register</a>
+        </li>
+      </ul>
+
+      <!--
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+-->
   </div>
+
 </nav>

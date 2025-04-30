@@ -29,17 +29,19 @@ from diagonostic_test import views as dt_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user_profile/',a_views.user_profile,name='user_profile'),
-    path('login/', a_views.login, name='login'),
+    path('login/', a_views.user_login, name='login'),
     path('register/', a_views.register, name='register'),
+    path('term_condition/', a_views.term_condition, name='term_condition'),
+    path('privacy_policy/', a_views.privacy_policy, name='privacy_policy'),
     path('', d_views.home, name='home'),
-    path('doc_search/', d_views.doc_search, name='doc_search'),
     path('doctor_list/', d_views.doctor_list, name='doctor_list'),
-    path('book_appointment/', ap_views.book_appointment, name='book_appointment'),
+    path('book_appointment/<str:id>/', ap_views.book_appointment, name='book_appointment'),
+    #path('book_appointment/', ap_views.book_appointment, name='book_appointment'),
     path('hospital_info/', h_views.hospital_info, name='hospital_info'),
     path('hospital_list/', h_views.hospital_list, name='hospital_list'),
     path('ambulance_req/', am_views.ambulance_req, name='ambulance_req'),
     path('test_available_list/', dt_views.test_available_list, name='test_available_list'),
-    path('test_search/', dt_views.test_search, name='test_search'),
+    path('test_info/', dt_views.test_info, name='test_info'),
 
 
 ] +static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

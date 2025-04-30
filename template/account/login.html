@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>login</h1>
-</body>
-</html>
+                                                                                                                                                                                                    {% extends 'base.html' %}
+{% load static %}
+{% block title %}Login | Medical Online Service{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Username <span>*</span></label>
+            <input type="text" class="form-control" placeholder="Enter username" required>
+        </div>
+        <div class="form-group">
+            <label>Email <span>*</span></label>
+            <input type="email" class="form-control" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+            <label>Phone number</label>
+            <input type="text" class="form-control" placeholder="+880">
+        </div>
+        <button type="submit" class="btn-primary">Login</button>
+        <div class="form-footer">
+            <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+        </div>
+    </form>
+</div>
+{% endblock %}
