@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Doctor,Dept
+from .form import DoctorForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def home(request):
     return render(request,template_name='doctors\home.html')
@@ -47,3 +49,38 @@ def doctor_list(request):
         }
     }
     return render(request, template_name='doctors/doctor_list.html', context=context)
+
+@login_required
+def upload_doctor(request):
+    if request.method == 'POST':
+        form = DoctorForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('doctor_list')
+    else:
+        form = DoctorForm()
+
+    context = {'form': form}
+    return render(request, template_name='doctors/upload_doctor.html', context=context)
+
+@login_required
+def update_doctor(request,id):
+    doctor= Doctor.objects.get(pk=id)
+    if request.method == 'POST':
+        form = DoctorForm(request.POST, request.FILES,instance=doctor)
+        if form.is_valid():
+            form.save()
+            return redirect('doctor_list')
+    else:
+        form = DoctorForm(instance=doctor)
+
+    context = {'form': form}
+    return render(request, template_name='doctors/upload_doctor.html', context=context)
+
+@login_required
+def delete_doctor(request,id):
+    doctor= Doctor.objects.get(pk=id)
+    if request.method == 'POST':
+        doctor.delete()
+        return redirect('doctor_list')
+    return render(request, template_name='doctors/delete_doctor.html')

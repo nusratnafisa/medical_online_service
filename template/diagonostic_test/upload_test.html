@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+<form action="" method ="POST" ENCTYPE="multipart/form-data">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" name ="submit">
+</form>
+</body>
+{% endblock %}

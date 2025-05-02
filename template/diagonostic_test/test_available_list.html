@@ -1,5 +1,56 @@
-{% extends 'base.html'%}
- {% load static %}
+{% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-  <h1>test_available_list</h1>
+<div class="test-search-container">
+  <h2>Find Diagnostic Tests</h2>
+
+  <form method="GET" action="{% url 'test_available_list' %}" class="search-form">
+
+    <input type="text" name="test_name" placeholder="Search Test..." value="{{ request.GET.test_name }}">
+    <input type="text" name="hospital_name" placeholder="Search Diagnostic Center..." value="{{ request.GET.hospital_name }}">
+
+    <select name="city">
+      <option value="">Select City</option>
+      {% for city in all_cities %}
+        <option value="{{ city }}" >{{ city }}</option>
+      {% endfor %}
+    </select>
+
+
+
+    <button type="submit">Search</button>
+    <button><a href="{% url 'test_available_list' %}">Reset</a></button>
+    <button><a href="{% url 'upload_test' %}">Add Test</a></button>
+  </form>
+</div>
+
+<!-- Results -->
+<div class="test-results">
+  {% if tests %}
+    {% for entry in tests %}
+      <div class="test-card">
+      <div class="hospital-card">
+        <div class="hospital-image">
+          {% if entry.hospital.profile_pic %}
+            <img src="{{ entry.hospital.profile_pic.url }}" alt="{{ entry.hospital.name }}">
+          {% else %}
+            <img src="{% static 'default_profile.jpg' %}" alt="No Image">
+          {% endif %}
+        </div>
+        <h3>{{ entry.test.name }}</h3>
+        <p><strong>Center:</strong> {{ entry.hospital.name }}</p>
+        <p><strong>City:</strong> {{ entry.hospital.city }}</p>
+        <p><strong>Address:</strong> {{ entry.hospital.address }}</p>
+        <p><strong>Price:</strong> {{ entry.price }} Tk</p>
+        <p><strong>Availability:</strong> {{ entry.availability|yesno:"Available,Not Available" }}</p>
+
+        <button class="search-button"><a href="{% url 'update_test' entry.id %}">update</a></button>
+        <button class="search-button"><a href="{% url 'delete_test' entry.id %}">delete</a></button>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No diagnostic centers found matching your search.</p>
+  {% endif %}
+</div>
 {% endblock %}

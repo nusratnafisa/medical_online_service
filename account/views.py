@@ -2,10 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from .form import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 @login_required
 def user_profile(request):
-    return render(request,template_name='account/user_profile.html')
+    return render(request,template_name='account/user_profile.html',context= {'user': request.user})
 
 def user_login(request):
     if request.method == 'POST':
@@ -21,7 +22,10 @@ def user_login(request):
             return render(request, template_name='account/login.html',context= context)
     return render(request, template_name='account/login.html')
 
-
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect('home')  # Redirect to home after logout
 
 def register(request):
     if request.method == 'POST':

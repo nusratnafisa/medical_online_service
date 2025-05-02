@@ -1,5 +1,67 @@
-{% extends 'base.html'%}
- {% load static %}
+{% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-  <h1>hospital_list</h1>
+<div class="hospital-search-container">
+  <div class="hospital-search-bar">
+    <h2 class="search-title">Find a Hospital</h2>
+
+    <form method="GET" action="{% url 'hospital_list' %}" class="search-form">
+      <div class="search-row">
+        <div class="decorative-button">Hospital</div>
+        <input type="text" class="search-input" placeholder="Search Hospital..." name="hospital_name"
+               value="{{ request.GET.hospital_name }}">
+      </div>
+
+      <!-- City Filter Dropdown -->
+      <div class="filter-row">
+        <select class="filter-dropdown" name="city">
+          <option value="">Select City</option>
+          {% for city in all_cities %}
+            <option value="{{ city }}">{{ city }}</option>
+          {% endfor %}
+        </select>
+
+        <button type="submit" class="search-button">Search</button>
+        <a href="{% url 'hospital_list' %}" class="search-button">Reset</a>
+        <a href="{% url 'upload_hospital' %}" class="search-button">Add Hospital</a>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<br>
+
+<!-- Hospitals Cards Section -->
+<div class="hospitals-list">
+  {% if hospitals %}
+    {% for hospital in hospitals %}
+      <div class="hospital-card">
+        <div class="hospital-image">
+          {% if hospital.profile_pic %}
+            <img src="{{ hospital.profile_pic.url }}" alt="{{ hospital.name }}">
+          {% else %}
+            <img src="{% static 'default_profile.jpg' %}" alt="No Image">
+          {% endif %}
+        </div>
+
+        <div class="hospital-info">
+          <h3>{{ hospital.name }}</h3>
+          <p class="address">{{ hospital.address }}</p>
+          <p class="hotline"><strong>Hotline:</strong> {{ hospital.hotline }}</p>
+          <p class="email"><strong>Email:</strong> {{ hospital.email }}</p>
+
+          <!-- Hospital info page link (optional, build later) -->
+           <button class="search-button"><a href="{% url 'hospital_info' hospital.id %}">View Details</a></button>
+           <button class="search-button"><a href="{% url 'update_hospital' hospital.id %}">update</a></button>
+           <button class="search-button"><a href="{% url 'delete_hospital' hospital.id %}">delete</a></button>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="no-results">No hospitals found matching your criteria.</p>
+  {% endif %}
+</div>
+
 {% endblock %}

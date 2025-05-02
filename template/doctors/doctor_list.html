@@ -38,9 +38,9 @@
 
          <!--<button type="submit" class="search-button">Filter</button>-->
         <button type="submit" class="search-button">Search</button>
-
+         <a href = "{% url 'upload_doctor' %}" class="search-button">Add Doctor</a>
         <!--
-        <button><a href="{% url 'doctor_list' %}" class="reset-button">Reset</a></button> <!-- Reset Button --> 
+        <button><a href="{% url 'doctor_list' %}" class="reset-button">Reset</a></button> Reset Button -->
     
       </div>
     </form>
@@ -67,7 +67,7 @@
           <p class="qualifications">{{ doctor.education }}</p>
           <p class="specialty">{{ doctor.specialization }}</p>
           <p class="city">{{ doctor.city }}</p>
-          <p class="gender">{{ doctor.gender }}</p>
+
 
           <div class="hospital-info">
             {% for hospital in doctor.hospitals.all %}
@@ -76,6 +76,8 @@
           </div>
 
          <a href="{% url 'book_appointment' doctor.id %}" class="book-btn">Book Appointment</a>
+          <a href="{% url 'update_doctor' doctor.id %}" class="book-btn">update</a>
+          <a href="{% url 'delete_doctor' doctor.id %}" class="book-btn">delete</a>
         </div>
       </div>
     {% endfor %}

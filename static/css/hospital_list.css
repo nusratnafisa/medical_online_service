@@ -1,0 +1,338 @@
+/*hospital_list.css file:*/
+/* Main container */
+.hospital-card:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s;
+}
+.hospital-search-container {
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+/* Search bar wrapper */
+.hospital-search-bar {
+    background: linear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%);
+    /* Dark blue background */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(113, 95, 95, 0.15);
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+}
+
+/* Title */
+.search-title {
+    color: white;   /* Already good */
+    background: #0d5a8a;  /* Add background color behind title */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Form layout */
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Search row */
+.search-row {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Filter row */
+.filter-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Search type dropdown */
+.search-type {
+    padding: 12px 15px;
+    border: 1px solid #2d85f9;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: white;
+    min-width: 120px;
+    color: #333;
+}
+
+/* Search input field */
+.search-input {
+    flex-grow: 1;
+    padding: 12px 20px;
+    font-size: 14px;
+    border: 1px solid #2d6cbf;
+    border-radius: 6px;
+}
+
+/* Search button */
+.search-button {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%);
+    /* Orange accent color */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-button:hover {
+    background-color: #2bbfe0;
+}
+
+/* Decorative button */
+.decorative-button {
+    padding: 12px 24px;
+    background-color: #dde7f0;
+    color: rgb(21, 16, 16);
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: default;
+    user-select: none;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Filter dropdowns */
+.filter-dropdown {
+    padding: 10px 15px;
+    border: 1px solid #2d6cbf;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: white;
+    min-width: 150px;
+    color: #333;
+}
+
+/* Hospitals List Container */
+.hospitals-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* hospital Profile Card Container */
+.hospital-profile-card {
+    display: flex;
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.hospital-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+/* Ensure each card takes full width */
+.hospital-card {
+    width: 100%;
+}
+
+/* Hospital Image */
+.hospital-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+
+.hospital-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Update the photo column to: */
+.hospital-photo-column {
+    width: 250px;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hospital-card {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hospital-profile-card {
+        flex-direction: column;
+    }
+
+    .hospital-photo-column {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+/* Divider Line */
+.divider {
+    height: 1px;
+    background: #e0e0e0;
+    margin: 20px 0;
+  }
+
+/* Doctor Info Column */
+.doctor-info-column {
+    flex: 1;
+    padding: 30px;
+}
+
+
+
+/* Hospital Information */
+.hospital-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.hospital-info p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+
+  .hospital-info p:first-child {
+    font-weight: 600;
+    color: #333;
+  }
+
+.hospital-info h3 {
+    color: #1a4b8c;
+    /* Dark blue */
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
+/* Header Section */
+.hospital-header h1 {
+    color: #1a4b8c;
+    /* Dark blue */
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.address {
+    color: #666;
+    font-size: 13px;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+.hotline {
+    color: #1a4b8c;
+    font-weight: 600;
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.email {
+    color: #666;
+    font-size: 14px;
+    margin: 5px 0 10px 0;
+}
+
+/* View Details Button */
+.view-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #6bbfe6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+
+}
+
+.view-btn:hover {
+    background-color: #277ffb;
+    /* Darker orange changed*/
+    text-decoration: none !important;
+}
+
+/* City Tags */
+.city-tags-container {
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.city-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.city-tag {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.city-tag.active {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-row {
+        flex-direction: column;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+
+    .filter-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-dropdown {
+        width: 100%;
+    }
+}
+
+/* No Results Message */
+.no-results {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: #666;
+    padding: 40px;
+    font-size: 16px;
+}

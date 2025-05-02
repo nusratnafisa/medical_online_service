@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Your Ambulance Requests</h2>
+
+<div class="request-list">
+  {% for req in requests %}
+    <div class="request-card">
+      <p><strong>From:</strong> {{ req.from_address }}</p>
+      <p><strong>To:</strong> {{ req.to_address }}</p>
+      <p><strong>Phone:</strong> {{ req.phone }}</p>
+      <p><strong>Date:</strong> {{ req.date|date:"Y-m-d H:i" }}</p>
+
+      {% if req.status == 'pending' %}
+        <div class="status-box pending">Pending</div>
+      {% elif req.status == 'accepted' %}
+        <div class="status-box accepted">Accepted</div>
+      {% elif req.status == 'completed' %}
+        <div class="status-box completed">Completed</div>
+      {% endif %}
+
+      {% if req.status != 'completed' %}
+        <a href="{% url 'complete_ambulance_request' req.id %}" class="btn btn-success">Mark as Completed</a>
+      {% endif %}
+    </div>
+  {% empty %}
+    <p>You haven't made any ambulance requests yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

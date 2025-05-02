@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+<p>Are you sure?</p>
+<form method = "POST">
+  {% csrf_token %}
+  <button  class="search-button"><a href = "{% url 'hospital_list' %}">no</a></button>
+  <input type="submit" name ="submit">
+</form>
+</body>
+{% endblock %}>
