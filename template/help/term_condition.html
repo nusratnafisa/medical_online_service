@@ -1,5 +1,61 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
-  <h1>term_condition</h1>
+<div class="terms-container">
+  <div class="terms-header">
+    <h1><i class="fas fa-file-contract"></i> Terms & Conditions</h1>
+    <p class="last-updated">Last updated: {% now "F j, Y" %}</p>
+  </div>
+
+  <div class="terms-content">
+    <div class="terms-section">
+      <h2><i class="fas fa-user-shield"></i> 1. Patient Rights</h2>
+      <p>All patients have the right to access their medical records, request amendments, and receive clear explanations
+        of all procedures.</p>
+      <ul>
+        <li>Right to privacy and confidentiality</li>
+        <li>Right to informed consent</li>
+        <li>Right to refuse treatment</li>
+      </ul>
+    </div>
+
+    <div class="terms-section">
+      <h2><i class="fas fa-procedures"></i> 2. Service Usage</h2>
+      <p>Our medical services are intended for legitimate healthcare purposes only. By using our services, you agree to:
+      </p>
+      <ul>
+        <li>Provide accurate medical information</li>
+        <li>Not misuse emergency services</li>
+        <li>Follow prescribed treatment plans</li>
+      </ul>
+    </div>
+
+    <div class="terms-section">
+      <h2><i class="fas fa-lock"></i> 3. Data Protection</h2>
+      <p>We adhere to strict HIPAA compliance standards for all patient data:</p>
+      <ul>
+        <li>Encrypted data transmission</li>
+        <li>Secure storage protocols</li>
+        <li>Controlled access to records</li>
+      </ul>
+    </div>
+
+    <div class="terms-section">
+      <h2><i class="fas fa-calendar-check"></i> 4. Appointments</h2>
+      <p>Appointment scheduling policies ensure efficient service delivery:</p>
+      <ul>
+        <li>24-hour cancellation notice required</li>
+        <li>Late arrivals may be rescheduled</li>
+        <li>Emergency cases receive priority</li>
+      </ul>
+    </div>
+
+    <div class="terms-actions">
+      <a href="{% url 'home' %}" class="home-btn">
+        <i class="fas fa-home"></i> Back to Home
+      </a>
+    </div>
+  </div>
+</div>
 {% endblock %}

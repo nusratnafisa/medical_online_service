@@ -1,9 +1,5 @@
-/*hospital_list.css file:*/
+
 /* Main container */
-.hospital-card:hover {
-    transform: scale(1.03);
-    transition: transform 0.3s;
-}
 .hospital-search-container {
     display: flex;
     justify-content: center;
@@ -23,10 +19,11 @@
 
 /* Title */
 .search-title {
-    color: white;   /* Already good */
-    background: #0d5a8a;  /* Add background color behind title */
-    padding: 10px;
-    border-radius: 8px;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
 }
 
 /* Form layout */
@@ -66,27 +63,28 @@
 .search-input {
     flex-grow: 1;
     padding: 12px 20px;
-    font-size: 14px;
+    font-size: 16px;
     border: 1px solid #2d6cbf;
     border-radius: 6px;
 }
 
 /* Search button */
 .search-button {
-    padding: 12px 30px;
+    padding: 10px 10px;
     background: linear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%);
     /* Orange accent color */
     color: white;
-    border: none;
+    border: #e9ecef;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
+
 }
 
 .search-button:hover {
-    background-color: #2bbfe0;
+    background: inear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%);
 }
 
 /* Decorative button */
@@ -96,7 +94,7 @@
     color: rgb(21, 16, 16);
     border: none;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     cursor: default;
     user-select: none;
@@ -117,17 +115,18 @@
 
 /* Hospitals List Container */
 .hospitals-list {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    flex-direction: column;
     gap: 25px;
     margin-top: 30px;
     max-width: 900px;
+    /* Optional: Limits width for better readability */
     margin-left: auto;
     margin-right: auto;
 }
 
-
-/* hospital Profile Card Container */
+/* hospital Profile Card Container 
 .hospital-profile-card {
     display: flex;
     max-width: 900px;
@@ -136,15 +135,18 @@
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-}
+}*/
+
 .hospital-card {
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
-    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /*flex-direction: column;*/
 }
+
 /* Ensure each card takes full width */
 .hospital-card {
     width: 100%;
@@ -152,9 +154,9 @@
 
 /* Hospital Image */
 .hospital-image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
+    width: 250px;
+    height: 250px;
+    object-fit: fill;
     border-radius: 4px;
     border: 1px solid #e0e0e0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -170,7 +172,7 @@
 
 /* Update the photo column to: */
 .hospital-photo-column {
-    width: 250px;
+    width: 300px;
     background: #f8fafc;
     display: flex;
     flex-direction: column;
@@ -178,16 +180,33 @@
     padding: 20px;
 }
 
-.hospital-card {
+.hospital-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
+/*.hospital-card:hover {
+    transition: all 0.3s ease;
+}*/
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hospital-profile-card {
+
+    .hospitals-list {
+        grid-template-columns: 1fr;
+    }
+
+    .hospital-card {
         flex-direction: column;
     }
+
+    .hospital-image {
+        width: 100%;
+        /*New change*/
+        height: 200px;
+
+    }
+
 
     .hospital-photo-column {
         width: 100%;
@@ -200,10 +219,10 @@
     height: 1px;
     background: #e0e0e0;
     margin: 20px 0;
-  }
+}
 
-/* Doctor Info Column */
-.doctor-info-column {
+/* Hospital Info Column */
+.hospital-info-column {
     flex: 1;
     padding: 30px;
 }
@@ -213,18 +232,33 @@
 /* Hospital Information */
 .hospital-info {
     flex: 1;
-    padding: 20px;
+    padding: 23px;
 }
 
 .hospital-info p {
     margin: 5px 0;
     font-size: 14px;
-  }
+}
 
-  .hospital-info p:first-child {
+.hospital-info p:first-child {
     font-weight: 600;
     color: #333;
-  }
+}
+
+.hospital-info a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #1a7bb9;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.hospital-info a:hover {
+    background-color: #0d5a8a;
+}
 
 .hospital-info h3 {
     color: #1a4b8c;
@@ -269,7 +303,9 @@
     color: white;
     border: none;
     border-radius: 5px;
+    font-size: 18px;
     font-weight: 600;
+    text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 10px;

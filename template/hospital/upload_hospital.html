@@ -2,11 +2,62 @@
 {% load static %}
 
 {% block content %}
-<body>
-<form action="" method ="POST" ENCTYPE="multipart/form-data">
-  {% csrf_token %}
-  {{form.as_p}}
-  <input type="submit" name ="submit">
-</form>
-</body>
+<div class="hospital-upload-container">
+  <div class="form-header">
+    <h2><i class="fas fa-hospital"></i> Hospital Registration</h2>
+    <p>Add a new hospital to the system</p>
+  </div>
+
+  <form action="" method="POST" enctype="multipart/form-data" class="hospital-form">
+    {% csrf_token %}
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="id_name">Hospital Name</label>
+        {{ form.name }}
+      </div>
+
+      <div class="form-group">
+        <label for="id_city">City</label>
+        {{ form.city }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="id_address">Address</label>
+      {{ form.address }}
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="id_phone">Phone Number</label>
+        <input type="tel" id="id_phone" name="phone" pattern="[+]{0,1}[0-9\s\-]+" title="Enter valid phone number"
+          class="phone-input">
+      </div>
+
+      <div class="form-group">
+        <label for="id_email">Email</label>
+        {{ form.email }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="id_profile_pic">Profile Picture</label>
+      {{ form.profile_pic }}
+    </div>
+    {% if form.instance.profile_pic %}
+    <div class="current-image-container">
+      <span class="current-image-label">Currently:</span>
+      <input type="text" class="current-image-link" value="{{ form.instance.profile_pic.url }}" readonly>
+    </div>
+    {% endif %}
+
+    <div class="form-group">
+      <label for="id_description">Description</label>
+      {{ form.description }}
+    </div>
+
+    <input type="submit" value="Register Hospital" class="submit-btn">
+  </form>
+</div>
 {% endblock %}

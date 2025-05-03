@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
+<div class="login-container">
+  <h2>Login</h2>
 
-<h2>Login</h2>
+  {% if error %}
+  <div class="error-message">{{ error }}</div>
+  {% endif %}
 
-{% if error %}
-<p style="color:red;">{{ error }}</p>
-{% endif %}
-
-<form method="POST">
+  <form method="POST" class="login-form">
     {% csrf_token %}
-    <label>Username:</label><br>
-    <input type="text" name="username" required><br><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
 
-    <label>Password:</label><br>
-    <input type="password" name="password" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
 
-    <button type="submit">Login</button>
-    <h5>Don't have an account?</h5>
-    <button type="submit"><a href="{% url 'register' %}">Register</a></button>
-
-</form>
-
+    <div class="login-actions">
+      <button type="submit" class="login-btn">Login</button>
+      <p class="register-prompt">Don't have an account?</p>
+      <a href="{% url 'register' %}" class="register-btn">Register</a>
+    </div>
+  </form>
+</div>
 {% endblock %}

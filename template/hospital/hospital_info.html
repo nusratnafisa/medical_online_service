@@ -1,24 +1,25 @@
-
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-<div class="hospital-detail-container" style="padding: 40px; max-width: 800px; margin: auto;">
+<div class="hospital-detail-container">
 
   <h1>{{ hospitals.name }}</h1>
+  <div class="hospital-image">
+    {% if hospitals.profile_pic %}
+    <img src="{{ hospitals.profile_pic.url }}" alt="{{ hospitals.name }}">
+    {% else %}
+    <img src="{% static 'default_profile.jpg' %}" alt="No Image">
+    {% endif %}
+  </div>
+  <div class="hospital-info">
+    <p><strong>Address:</strong> {{ hospitals.address }}</p>
+    <p><strong>City:</strong> {{ hospitals.city }}</p>
+    <p><strong>Hotline:</strong> {{ hospitals.hotline }}</p>
+    <p><strong>Email:</strong> {{hospitals.email }}</p>
+  </div>
 
-  {% if hospitals.profile_pic %}
-    <img src="{{ hospitals.profile_pic.url }}" alt="{{ hospitals.name }}" style="width: 100%; height: auto; margin: 20px 0;">
-  {% else %}
-    <img src="{% static 'default_profile.jpg' %}" alt="No Image" style="width: 100%; height: auto; margin: 20px 0;">
-  {% endif %}
-
-  <p><strong>Address:</strong> {{ hospitals.address }}</p>
-  <p><strong>City:</strong> {{ hospitals.city }}</p>
-  <p><strong>Hotline:</strong> {{ hospitals.hotline }}</p>
-  <p><strong>Email:</strong> {{hospitals.email }}</p>
-
-  <a href="{% url 'hospital_list' %}" class="btn btn-primary" style="margin-top: 20px;"> Back to Hospital List</a>
+  <a href="{% url 'hospital_list' %}" class="btn btn-primary"> Back to Hospital List</a>
 
 </div>
 {% endblock %}

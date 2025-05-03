@@ -28,7 +28,7 @@ def ambulance_req(request):
             else:
                 ambulance_request.status = 'pending'
                 ambulance_request.save()
-                return render(request, template_name='ambulance/no_ambulance.html')
+                return redirect('ambulance_req_success')
     else:
         form = AmbulanceRequestForm()
 
@@ -37,7 +37,7 @@ def ambulance_req(request):
 
 @login_required
 def complete_ambulance_request(request, id):
-    ambulance_request = AmbulanceRequest.objects.get( pk=id, user=request.user)
+    ambulance_request = AmbulanceRequest.objects.get( pk=id, user=request.user,status='accepted')
 
     if ambulance_request.status != 'completed':
         ambulance_request.status = 'completed'
@@ -52,7 +52,9 @@ def complete_ambulance_request(request, id):
                 ambulance.driver.is_available = True
                 ambulance.driver.save()
 
-    return redirect('user_profile')  # or another page
+    return redirect('ambulance_req')  # or another page
+
+
 @login_required
 def ambulance_req_success(request):
     return render(request, template_name='ambulance/ambulance_req_success.html')

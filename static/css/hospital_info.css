@@ -1,0 +1,108 @@
+/* hospital_info.css */
+.hospital-detail-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+.hospital-detail-container h1 {
+    color: #1a4b8c;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.hospital-detail-container img {
+    width: 250px;
+    height: 250px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 3px solid #e0e0e0;
+    display: block;
+    margin: 0 auto 25px;
+}
+
+.hospital-detail-container p {
+    font-size: 16px;
+    /*line-height: 1.6;*/
+    color: #444;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    border-left: 3px solid #1a7bb9;
+}
+
+.hospital-detail-container p strong {
+    color: #1a4b8c;
+    font-weight: 600;
+    min-width: 80px;
+    display: grid;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #1a7bb9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    /*margin-top: 25px;*/
+}
+
+.btn:hover {
+    background: #0d5a8a;
+}
+
+.btn-primary {
+    background: #1a7bb9;
+}
+
+.btn-primary:hover {
+    background: #0d5a8a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hospital-detail-container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    
+    .hospital-detail-container h1 {
+        font-size: 24px;
+    }
+    
+    .hospital-detail-container img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .hospital-detail-container p {
+        font-size: 15px;
+        padding-left: 15px;
+    }
+
+    .button-container {
+        margin-top: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

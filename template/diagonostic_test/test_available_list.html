@@ -2,55 +2,70 @@
 {% load static %}
 
 {% block content %}
+
 <div class="test-search-container">
-  <h2>Find Diagnostic Tests</h2>
+  <div class="test-search-bar">
+    <h2 class="search-title">Find Diagnostic Tests</h2>
 
-  <form method="GET" action="{% url 'test_available_list' %}" class="search-form">
+    <form method="GET" action="{% url 'test_available_list' %}" class="search-form">
+      <div class="search-row">
+        <div class="decorative-button">Test</div>
+        <input type="text" class="search-input" placeholder="Search tests..." name="test_name" value="{{ request.GET.test_name }}">
+        <input type="text" class="search-input" placeholder="Search diagnostic center..." name="hospital_name" value="{{ request.GET.hospital_name }}">
+      </div>
 
-    <input type="text" name="test_name" placeholder="Search Test..." value="{{ request.GET.test_name }}">
-    <input type="text" name="hospital_name" placeholder="Search Diagnostic Center..." value="{{ request.GET.hospital_name }}">
+      <div class="filter-row">
+        <select class="filter-dropdown" name="city">
+          <option value="">Select City</option>
+          {% for city in all_cities %}
+            <option value="{{ city }}" {% if request.GET.city == city %}selected{% endif %}>{{ city }}</option>
+          {% endfor %}
+        </select>
 
-    <select name="city">
-      <option value="">Select City</option>
-      {% for city in all_cities %}
-        <option value="{{ city }}" >{{ city }}</option>
-      {% endfor %}
-    </select>
-
-
-
-    <button type="submit">Search</button>
-    <button><a href="{% url 'test_available_list' %}">Reset</a></button>
-    <button><a href="{% url 'upload_test' %}">Add Test</a></button>
-  </form>
+        <button type="submit" class="search-button">Search</button>
+        <a href="{% url 'test_available_list' %}" class="reset-button">Reset</a>
+        <a href="{% url 'upload_test' %}" class="search-button">Add Test</a>
+      </div>
+    </form>
+  </div>
 </div>
 
-<!-- Results -->
-<div class="test-results">
+<br>
+
+<!-- Test Cards Section -->
+<div class="tests-list">
   {% if tests %}
     {% for entry in tests %}
       <div class="test-card">
-      <div class="hospital-card">
-        <div class="hospital-image">
+        <div class="test-image">
           {% if entry.hospital.profile_pic %}
             <img src="{{ entry.hospital.profile_pic.url }}" alt="{{ entry.hospital.name }}">
           {% else %}
             <img src="{% static 'default_profile.jpg' %}" alt="No Image">
           {% endif %}
         </div>
-        <h3>{{ entry.test.name }}</h3>
-        <p><strong>Center:</strong> {{ entry.hospital.name }}</p>
-        <p><strong>City:</strong> {{ entry.hospital.city }}</p>
-        <p><strong>Address:</strong> {{ entry.hospital.address }}</p>
-        <p><strong>Price:</strong> {{ entry.price }} Tk</p>
-        <p><strong>Availability:</strong> {{ entry.availability|yesno:"Available,Not Available" }}</p>
 
-        <button class="search-button"><a href="{% url 'update_test' entry.id %}">update</a></button>
-        <button class="search-button"><a href="{% url 'delete_test' entry.id %}">delete</a></button>
+        <div class="test-info">
+          <h3>{{ entry.test.name }}</h3>
+          <p class="center"><strong>{{ entry.hospital.name }}</strong></p>
+          <p class="city">{{ entry.hospital.city }}</p>
+          <p class="address">{{ entry.hospital.address }}</p>
+          
+          <div class="test-details">
+            <p><strong>Price:</strong> {{ entry.price }} Tk</p>
+            <p><strong>Availability:</strong> {{ entry.availability|yesno:"Available,Not Available" }}</p>
+          </div>
+
+          <div class="action-buttons">
+            <a href="{% url 'update_test' entry.id %}" class="action-button">Update</a>
+            <a href="{% url 'delete_test' entry.id %}" class="action-button">Delete</a>
+          </div>
+        </div>
       </div>
     {% endfor %}
   {% else %}
-    <p>No diagnostic centers found matching your search.</p>
+    <p class="no-results">No diagnostic tests found matching your criteria.</p>
   {% endif %}
 </div>
+
 {% endblock %}

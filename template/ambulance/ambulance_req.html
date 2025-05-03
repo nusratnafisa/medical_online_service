@@ -12,37 +12,46 @@
 
     <div class="form-row">
       <div class="form-group">
-        <label for="from-address">From</label>
-        <div class="input-with-icon">
-          <i class="fas fa-map-marker-alt"></i>
-          <input type="text" id="from-address" name="from_address" placeholder="Enter address...">
-        </div>
+        <label for="from-address"> <i class="fas fa-map-marker-alt"></i>From</label>
+
+        <!--<i class="fas fa-map-marker-alt"></i>-->
+        <input type="text" id="from-address" name="from_address" placeholder="Enter address...">
+
       </div>
 
       <div class="form-group">
-        <label for="destination">Destination</label>
-        <div class="input-with-icon">
-          <i class="fas fa-hospital"></i>
-          <input type="text" id="destination" name="to_address" placeholder="Enter address...">
-        </div>
+        <label for="destination"><i class="fas fa-hospital"></i>Destination</label>
+        
+        <!--<i class="fas fa-hospital"></i>-->
+        <input type="text" id="destination" name="to_address" placeholder="Enter address...">
+      
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <div class="input-with-icon">
-          <i class="fas fa-phone"></i>
-          <input type="tel" id="phone" name="phone" placeholder="+880" value="+880">
-        </div>
+        <label for="phone"><i class="fas fa-phone me-1"></i> Phone Number</label>
+        
+        <!--<i class="fas fa-phone"></i>-->
+        <input type="tel" id="phone" name="phone" placeholder="+880"
+          value="+880{{ form.phone.value|default_if_none:'' }}" required pattern="\+880\d{9,10}">
+        {% if form.phone.errors %}
+        <div class="text-danger"><i class="fas fa-exclamation-circle"></i> {{ form.phone.errors }}</div>
+        {% endif %}
+        <small class="form-text text-muted"><i class="fas fa-info-circle"></i> Format: +8801XXXXXXXXX</small>
+        
       </div>
     </div>
+
 
 
     <button type="submit" class="submit-request-btn">
       <i class="fas fa-paper-plane"></i> Send a Request
     </button>
-     <button><a class="dropdown-item" href="{% url 'user_ambulance_requests' %}">My Ambulance Requests</a></button>
+    <a href="{% url 'user_ambulance_requests' %}" class="my-requests-btn">
+      <i class="fas fa-list"></i> My Ambulance Requests
+    </a>
   </form>
 </div>
+
 {% endblock %}

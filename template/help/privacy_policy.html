@@ -1,5 +1,20 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
-  <h1>privacy_policy</h1>
+<div class="privacy-container">
+  <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
+  
+  <p>At Medical Online Service, your privacy is important to us. This policy explains how we handle your personal data:</p>
+
+  <ul>
+    <li><i class="fas fa-check-circle"></i> We collect basic user information (name, email, phone number) only for service purposes.</li>
+    <li><i class="fas fa-check-circle"></i> We do not share your personal data with third parties without your consent.</li>
+    <li><i class="fas fa-check-circle"></i> Your data is stored securely and used only to manage appointments, requests, and services.</li>
+    <li><i class="fas fa-check-circle"></i> Users can request deletion of their account and associated data at any time.</li>
+    <li><i class="fas fa-check-circle"></i> We use cookies only to enhance user experience and website functionality.</li>
+  </ul>
+
+  <p class="consent-text">By using our website, you consent to our Privacy Policy.</p>
+</div>
 {% endblock %}

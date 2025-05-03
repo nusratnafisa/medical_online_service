@@ -1,0 +1,95 @@
+/* Registration Container */
+.registration-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading */
+  .registration-container h2 {
+    color: #1a4b8c;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  /* Form Styles */
+  .registration-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Form Fields */
+  .registration-form p {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .registration-form label {
+    color: darkblue;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .registration-form input[type="text"],
+  .registration-form input[type="email"],
+  .registration-form input[type="password"] {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .registration-form input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    outline: none;
+  }
+  
+  /* Error Messages */
+  .errorlist {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  /* Button Styles */
+  .register-btn {
+    padding: 0.75rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+  
+  .register-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .registration-container {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+    
+    .registration-form p {
+      margin-bottom: 1rem;
+    }
+  }

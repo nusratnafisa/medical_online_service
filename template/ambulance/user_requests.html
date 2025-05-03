@@ -2,30 +2,70 @@
 {% load static %}
 
 {% block content %}
-<h2>Your Ambulance Requests</h2>
-
-<div class="request-list">
-  {% for req in requests %}
-    <div class="request-card">
-      <p><strong>From:</strong> {{ req.from_address }}</p>
-      <p><strong>To:</strong> {{ req.to_address }}</p>
-      <p><strong>Phone:</strong> {{ req.phone }}</p>
-      <p><strong>Date:</strong> {{ req.date|date:"Y-m-d H:i" }}</p>
-
-      {% if req.status == 'pending' %}
-        <div class="status-box pending">Pending</div>
-      {% elif req.status == 'accepted' %}
-        <div class="status-box accepted">Accepted</div>
-      {% elif req.status == 'completed' %}
-        <div class="status-box completed">Completed</div>
-      {% endif %}
-
-      {% if req.status != 'completed' %}
-        <a href="{% url 'complete_ambulance_request' req.id %}" class="btn btn-success">Mark as Completed</a>
-      {% endif %}
+<div class="container my-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h2><i class="fas fa-list me-2"></i> My Ambulance Requests</h2>
     </div>
-  {% empty %}
-    <p>You haven't made any ambulance requests yet.</p>
-  {% endfor %}
+    <div class="card-body">
+      {% if requests %}
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Request Date</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for req in requests %}
+            <tr>
+              <td>{{ req.date|date:"M d, Y H:i" }}</td>
+              <td>{{ req.from_address|truncatechars:20 }}</td>
+              <td>{{ req.to_address|truncatechars:20 }}</td>
+              <td>
+                <span class="badge
+                                    {% if req.status == 'pending' %}bg-warning
+                                    {% elif req.status == 'accepted' %}bg-success
+                                    {% elif req.status == 'completed' %}bg-info
+                                    {% else %}bg-danger{% endif %}">
+                  {{ req.get_status_display }}
+                </span>
+              </td>
+              <td>
+                {% if req.status == 'accepted' %}
+                <a href="{% url 'complete_ambulance_request' req.id %}" class="btn btn-sm btn-success"
+                  onclick="return confirm('Mark this request as completed?')">
+                  <i class="fas fa-check me-1"></i> Mark Complete
+                </a>
+                {% elif req.status == 'completed' %}
+                <span class="text-muted">Completed</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="alert alert-info">
+        <i class="fas fa-info-circle me-2"></i>
+        You haven't made any ambulance requests yet.
+      </div>
+      {% endif %}
+
+      <div class="mt-4">
+        <a href="{% url 'ambulance_req' %}" class="btn btn-primary">
+          <i class="fas fa-plus me-1"></i> New Request
+        </a>
+        <a href="{% url 'home' %}" class="btn btn-outline-secondary ms-2">
+          <i class="fas fa-home me-1"></i> Return Home
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
-{% endblock %}
+{% endblock %}

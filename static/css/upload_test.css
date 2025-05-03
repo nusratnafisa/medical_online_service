@@ -1,0 +1,87 @@
+/* Diagnostic Test Upload Form Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    padding: 40px 20px;
+  }
+  
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  form p {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    font-weight: 500;
+    color: #444;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="file"],
+  form select,
+  form textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s;
+    width: 100%;
+  }
+  
+  form input:focus,
+  form select:focus,
+  form textarea:focus {
+    border-color: #1a7bb9;
+    box-shadow: 0 0 0 3px rgba(26, 123, 185, 0.2);
+    outline: none;
+  }
+  
+  input[type="submit"] {
+    background: #3c91ea;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  input[type="submit"]:hover {
+    background: #3aa3d8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(58, 163, 216, 0.3);
+  }
+  
+  /* File upload specific styling */
+  input[type="file"] {
+    padding: 8px;
+    border: 1px dashed #ccc;
+    background: #f9f9f9;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    body {
+      padding: 20px;
+    }
+    
+    form {
+      padding: 20px;
+    }
+  }

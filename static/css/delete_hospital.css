@@ -1,0 +1,106 @@
+/* Delete Confirmation Container */
+.delete-confirmation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Confirmation Card */
+.confirmation-card {
+  max-width: 500px;
+  width: 100%;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border-top: 4px solid #e74c3c;
+}
+
+/* Warning Icon */
+.warning-icon {
+  font-size: 3.5rem;
+  color: #e74c3c;
+  margin-bottom: 1.5rem;
+}
+
+/* Confirmation Text */
+.confirmation-title {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.confirmation-message {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Buttons */
+.delete-btn,
+.cancel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.cancel-btn {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #7f8c8d;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .confirmation-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .button-group {
+    flex-direction: column-reverse;
+  }
+  
+  .delete-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+}

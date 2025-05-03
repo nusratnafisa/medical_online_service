@@ -2,12 +2,24 @@
 {% load static %}
 
 {% block content %}
-<body>
-<p>Are you sure?</p>
-<form method = "POST">
-  {% csrf_token %}
-  <button  class="search-button"><a href = "{% url 'hospital_list' %}">no</a></button>
-  <input type="submit" name ="submit">
-</form>
-</body>
-{% endblock %}>
+<div class="delete-confirmation-container">
+  <div class="confirmation-card">
+    <i class="fas fa-exclamation-triangle warning-icon"></i>
+    <h2 class="confirmation-title">Delete Hospital</h2>
+    <p class="confirmation-message">Are you sure you want to permanently delete this hospital?</p>
+    
+    <form method="POST" class="confirmation-form">
+      {% csrf_token %}
+      <div class="button-group">
+        <button type="submit" class="delete-btn">
+          <i class="fas fa-trash-alt"></i> Yes, Delete
+        </button>
+        <a href="{% url 'hospital_list' %}" class="cancel-btn">
+          <i class="fas fa-times"></i> No, Cancel
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+

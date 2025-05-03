@@ -1,5 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-  <h2>Your ambulance request was submitted successfully!</h2>
-  <a href="{% url 'home' %}">Back to Home</a>
-{% endblock %}
+<div class="success-container">
+  <div class="success-card">
+    <!-- Success Icon -->
+    <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+
+    <!-- Success Title -->
+    <h1 class="success-title">Your ambulance request was submitted successfully!</h1>
+
+    <!-- Success Message -->
+    <div class="success-message">
+      <p>We've received your request and will contact you shortly.</p>
+    </div>
+
+    <!-- Home Button -->
+    <div class="button-container">
+        <a href="{% url 'user_ambulance_requests' %}" class="btn btn-primary me-md-2">
+          <i class="fas fa-ambulance me-1"></i> View My Requests
+        </a>
+        <a href="{% url 'home' %}" class="home-btn" aria-label="Return to home page">
+          <i class="fas fa-home"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+

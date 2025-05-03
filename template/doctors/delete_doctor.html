@@ -2,14 +2,23 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-5">
-  <h2>Delete Doctor</h2>
-  <p>Are you sure you want to delete this doctor?</p>
-
-  <form method="POST">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Yes, Delete</button>
-    <a href="{% url 'doctor_list' %}" class="btn btn-secondary">No, Cancel</a>
-  </form>
+<div class="delete-confirmation-container">
+  <div class="confirmation-card">
+    <i class="fas fa-exclamation-triangle warning-icon"></i>
+    <h2 class="confirmation-title">Delete Doctor Profile</h2>
+    <p class="confirmation-message">Are you sure you want to permanently delete this doctor's profile?</p>
+    
+    <form method="POST" class="confirmation-form">
+      {% csrf_token %}
+      <div class="button-group">
+        <button type="submit" class="delete-btn">
+          <i class="fas fa-trash-alt"></i> Yes, Delete
+        </button>
+        <a href="{% url 'doctor_list' %}" class="cancel-btn">
+          <i class="fas fa-times"></i> No, Cancel
+        </a>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock %}
