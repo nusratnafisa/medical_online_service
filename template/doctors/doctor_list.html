@@ -3,11 +3,10 @@
 
 {% block content %}
 
-<div class="doctor-search-container">
-  <div class="doctor-search-bar">
+<div class="doctor-search-page-container">
+  <div class="doctor-search-component">
     <h2 class="search-title">Find a Doctor</h2>
-
-    <form method="GET" action="{% url 'doctor_list' %}" class="search-form">
+    <form class="search-form" method="GET" action="{% url 'doctor_list' %}">
       <div class="search-row">
         <div class="decorative-button">Doctor</div>
         <input type="text" class="search-input" placeholder="Search doctors..." name="doctor_name" value="{{ request.GET.doctor_name }}">

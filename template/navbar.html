@@ -1,7 +1,17 @@
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{% url 'home' %}">Medical Online Service</a>
+  
+  <a class="navbar-brand" href="{% url 'home' %}">
+    <img src="{% static 'image/logo6.png' %}" 
+         alt="Logo"
+         height="50"  
+         width="auto"  
+         class="d-inline-block align-middle me-3">  <!-- Better alignment -->
+    CareSphere
+  </a>
+  <!--<a class="navbar-brand" href="{% url 'home' %}">CareSphere</a>-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    aria-controls="navbarSupportedContent" aria-epanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 

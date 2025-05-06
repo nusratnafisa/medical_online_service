@@ -2,11 +2,135 @@
 {% load static %}
 
 {% block content %}
-<body>
-<form action="" method ="POST" ENCTYPE="multipart/form-data">
-  {% csrf_token %}
-  {{form.as_p}}
-  <input type="submit" name ="submit">
-</form>
-</body>
-{% endblock %}
+<div class="doctor-upload-container">
+    <div class="upload-header">
+        <h2>
+            <i class="fas fa-user-md"></i>
+            {% if form.instance.pk %}Update{% else %}Create{% endif %} Doctor Profile
+        </h2>
+        <p>Please fill in all required details</p>
+    </div>
+
+    <form class="doctor-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Personal Information Section -->
+        <div class="form-section">
+            <h3 class="section-title">
+                <i class="fas fa-user-circle"></i> Personal Information
+            </h3>
+
+            <div class="form-row">
+                <div class="form-group {% if form.name.errors %}has-error{% endif %}">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                    {% if form.name.errors %}
+                        <div class="error-message">{{ form.name.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.gender.label_tag }}
+                    {{ form.gender }}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.profile_pic.label_tag }}
+                    {{ form.profile_pic }}
+                    {% if form.profile_pic.help_text %}
+                        <span class="form-note">{{ form.profile_pic.help_text }}</span>
+                    {% endif %}
+                    {% if form.instance.profile_pic %}
+                        <div class="current-image">
+                            <small>Current: <a href="{{ form.instance.profile_pic.url }}" target="_blank">{{ form.instance.profile_pic.name }}</a></small>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.city.label_tag }}
+                    {{ form.city }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Information Section -->
+        <div class="form-section">
+            <h3 class="section-title">
+                <i class="fas fa-briefcase-medical"></i> Professional Information
+            </h3>
+
+            <div class="form-group {% if form.education.errors %}has-error{% endif %}">
+                {{ form.education.label_tag }}
+                {{ form.education }}
+                {% if form.education.help_text %}
+                    <span class="form-note">{{ form.education.help_text }}</span>
+                {% endif %}
+                {% if form.education.errors %}
+                    <div class="error-message">{{ form.education.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.specialization.label_tag }}
+                    {{ form.specialization }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.profession.label_tag }}
+                    {{ form.profession }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form.chamber_address.label_tag }}
+                {{ form.chamber_address }}
+            </div>
+        </div>
+
+        <!-- Hospital Affiliations Section -->
+        <div class="form-section">
+            <h3 class="section-title">
+                <i class="fas fa-hospital"></i> Hospital Affiliations
+            </h3>
+
+            <div class="form-group {% if form.hospitals.errors %}has-error{% endif %}">
+                {{ form.hospitals.label_tag }}
+                {{ form.hospitals }}
+                {% if form.hospitals.errors %}
+                    <div class="error-message">{{ form.hospitals.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group {% if form.dept_names.errors %}has-error{% endif %}">
+                {{ form.dept_names.label_tag }}
+                {{ form.dept_names }}
+                {% if form.dept_names.help_text %}
+                    <span class="form-note">{{ form.dept_names.help_text }}</span>
+                {% endif %}
+                {% if form.dept_names.errors %}
+                    <div class="error-message">{{ form.dept_names.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-save"></i> {% if form.instance.pk %}Update{% else %}Save{% endif %} Profile
+            </button>
+            <a href="{% url 'doctor_list' %}" class="submit-btn" >
+                <i class="fas fa-times"></i> Cancel
+            </a>
+        </div>
+    </form>
+</div>
+
+<!-- Include Select2 CSS and JS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+
+{% endblock %}

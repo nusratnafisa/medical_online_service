@@ -53,9 +53,9 @@
       <p class="email"><strong>Email:</strong> {{ hospital.email }}</p>
 
       <!-- Hospital info page link (optional, build later) -->
-      <button class="search-button"><a href="{% url 'hospital_info' hospital.id %}">View Details</a></button>
-      <button class="search-button"><a href="{% url 'update_hospital' hospital.id %}">update</a></button>
-      <button class="search-button"><a href="{% url 'delete_hospital' hospital.id %}">delete</a></button>
+      <button class="hsearch-button"><a href="{% url 'hospital_info' hospital.id %}">View Details</a></button>
+      <button class="hsearch-button"><a href="{% url 'update_hospital' hospital.id %}">update</a></button>
+      <button class="hsearch-button"><a href="{% url 'delete_hospital' hospital.id %}">delete</a></button>
     </div>
   </div>
   {% endfor %}

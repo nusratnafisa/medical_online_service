@@ -69,12 +69,11 @@
 }
 
 /* Search button */
-.search-button {
-    padding: 10px 10px;
-    background: linear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%);
-    /* Orange accent color */
-    color: white;
-    border: #e9ecef;
+.hsearch-button {
+   
+    background: none;
+    color: rgb(255, 255, 255);
+    border: #ffffff;
     border-radius: 6px;
     font-size: 17px;
     font-weight: 600;
@@ -84,7 +83,7 @@
 }
 
 .search-button:hover {
-    background: inear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%);
+    background: linear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%);
 }
 
 /* Decorative button */

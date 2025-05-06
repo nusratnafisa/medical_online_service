@@ -39,7 +39,7 @@
 }
 
 /* Filter row (dropdown filters) */
-.filter-row {
+ .filter-row {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
@@ -117,7 +117,7 @@
     width: 100%;
   }
 
-  .filter-row {
+ .filter-row {
     flex-direction: column;
     align-items: center;
   }
@@ -540,3 +540,125 @@ outline: none;
 border-color: #5cb0ff;
 box-shadow: 0 0 0 3px rgba(92, 176, 255, 0.2);
 }
+
+
+
+
+
+
+
+/* Completely isolated search container */
+.doctor-search-page-container {
+  all: initial; /* Reset all inherited styles */
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  * {
+    all: unset; /* Reset all child elements */
+    box-sizing: border-box;
+  }
+}
+
+/* Isolated search bar with reset */
+.doctor-search-component {
+  all: initial;
+  display: block;
+  background: linear-gradient(135deg, #1a7bb9 0%, #0d5a8a 100%);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  font-family: inherit;
+  
+  /* Explicitly reset common inherited properties */
+  color: #333;
+  line-height: normal;
+  font-size: 14px;
+}
+
+/* Title with reset */
+.doctor-search-component .search-title {
+  all: initial;
+  display: block;
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  text-align: center;
+}
+
+/* Form isolation */
+.doctor-search-component .search-form {
+  all: initial;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: inherit;
+}
+
+/* Input field isolation */
+.doctor-search-component .search-input {
+  all: initial;
+  flex-grow: 1;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: 1px solid #ddd !important;
+  border-radius: 4px;
+  background: white;
+  font-family: inherit;
+  width: 100%;
+  display: block;
+}
+
+/* Button isolation */
+.doctor-search-component .search-button {
+  all: initial;
+  padding: 10px 20px;
+ 
+  color: white !important;
+  border: none !important;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-block;
+  text-align: center;
+  transition: 
+    background-color 0.4s ease-in-out,
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s ease-out,
+    text-shadow 0.2s linear;
+}
+.search-button{
+  background: #0a456e !important; 
+}
+
+.search-button:hover {
+  background-color: #1fa6d3 !important; /* Even darker on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .doctor-search-component .search-row,
+  .doctor-search-component .filter-row {
+    flex-direction: column;
+  }
+  
+  .doctor-search-component .search-input,
+  .doctor-search-component .filter-dropdown,
+  .doctor-search-component .search-button {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
