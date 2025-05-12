@@ -1,9 +1,27 @@
+body.doc-list {
+  
+  background-color: #edfbff;  /* Use any color you prefer */
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Default Background for Other Pages */
+body.default {
+  background-color: #ffffff;  /* Light color or fallback background */
+  min-height: 100vh;
+}
 /* Main container */
 .doctor-search-container {
   display: flex;
   justify-content: center;
   padding: 30px 20px;
 }
+
+
 
 /* Search bar wrapper */
 .doctor-search-bar {
@@ -413,7 +431,7 @@ margin-left: 5px;
 .book-btn {
 width: 100%;
 padding: 10px;
-background-color: #6bbfe6; /* Orange changed */
+background-color: #1d70ab; /* Orange changed */
 color: white;
 border: none;
 border-radius: 5px;
@@ -424,7 +442,10 @@ margin-top: 10px;
 }
 
 .book-btn:hover {
-background-color: #277ffb; /* Darker orange changed*/
+background-color: #1fa6d3; /* Darker orange changed*/
+transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+
 text-decoration: none !important;
 }
 

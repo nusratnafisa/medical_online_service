@@ -1,3 +1,19 @@
+body.test-list{
+  
+  background-color: #edfbff;  /* Use any color you prefer */
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Default Background for Other Pages */
+body.default {
+  background-color: #ffffff;  /* Light color or fallback background */
+  min-height: 100vh;
+}
 /* Main container */
 .test-search-container {
     display: flex;
@@ -94,13 +110,14 @@
 
 .search-button:hover {
     background-color: #0c4c75;
+    text-decoration: none;
 }
 
 .reset-button {
     padding: 12px 25px;
-    background: #f8fafc;
-    color: #4a6b88;
-    border: 1px solid #ddd;
+    background: #0a456e ;
+    color: #ffffff;
+  
     border-radius: 6px;
     font-weight: 500;
     cursor: pointer;
@@ -109,6 +126,7 @@
 
 .reset-button:hover {
     background: #e8ecef;
+     text-decoration: none;
 }
 
 /* Test Results Container */
@@ -193,7 +211,7 @@
 .action-button {
     padding: 8px 15px;
     margin-right: 10px;
-    background-color: #6bbfe6;
+    background-color: #1d70ab;
     color: white;
     border: none;
     border-radius: 5px;
@@ -206,7 +224,7 @@
 }
 
 .action-button:hover {
-    background-color: #277ffb;
+    background-color: #1fa6d3;
     text-decoration: none;
 }
 

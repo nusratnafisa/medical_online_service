@@ -3,11 +3,67 @@
 {% load static %}
 
 
-<!--<img src="{% static 'image/bg.jpg' %}" class="w-100" style="max-height: 500px; object-fit: cover;" alt="Medical Banner"> -->
+<!--banner
+
+<section class="banner-section">
+
+  <h1 >Book a Doctor's Appointment  in Just 10 <br> Minutes  with Sasthya Seba.</h1>
+
+  <div class="banner-content">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search doctors, hospitals, clinics...">
+      <button onclick="searchItems()">Search</button>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+</section>
+
+
+banner-->
+
 
 
 <div class="centered-image-container" style="width: 1500px;">
-  <img src="{% static 'image/bg1.jpg' %}" alt="Centered Image">
+  <img src="{% static 'image/bg.png' %}" alt="Centered Image">
+</div>
+
+<div class="card-container">
+  <a href="{% url 'doctor_list' %}" class="card-link">
+    <div class="card">
+      <img src="{% static 'image/doctor.png' %}" alt="Find Doctor">
+      <div class="card-content">
+        <h3> Find Doctor</h3>
+        <p>  Search and connect with the best doctors near you.</p>
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'hospital_list' %}" class="card-link">
+    <div class="card">
+      <img src="{% static 'image/hospital.jpg' %}" alt="Find Hospital">
+      <div class="card-content">
+        <h3>Find Hospital</h3>
+        <p>Search hospitals. anytoime anywhere and whenever you want</p>
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'ambulance_req' %}" class="card-link">
+    <div class="card">
+      <img src="{% static 'image/ambulance.jpeg' %}" alt="Find Ambulance">
+      <div class="card-content">
+        <h3>Find Ambulance</h3>
+        <p>Get real-time ambulance availability around you.</p>
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'test_available_list' %}" class="card-link">
+    <div class="card">
+      <img src="{% static 'image/tests.avif' %}" alt="Diagnostic Tests">
+      <div class="card-content">
+        <h3>Diagnostic Tests</h3>
+        <p>Book lab tests with home sample collection options.</p>
+      </div>
+    </div>
+  </a>
 </div>
 
 

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block body_class %}upload_doctor{% endblock %}
 
 {% block content %}
 <div class="doctor-upload-container">
@@ -10,7 +11,7 @@
         </h2>
         <p>Please fill in all required details</p>
     </div>
-
+ 
     <form class="doctor-form" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
@@ -134,3 +135,5 @@
 
 
 {% endblock %}
+
+

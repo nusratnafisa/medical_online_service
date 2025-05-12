@@ -1,138 +1,76 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block body_class %}upload-test{% endblock %}
 {% block content %}
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10 col-sm-12">
-            <div class="card shadow-sm border-0 mt-4">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0">
-                        <i class="fas fa-flask mr-2"></i>Test Availability Management
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <form method="POST" class="needs-validation" novalidate>
-                        {% csrf_token %}
-
-                        {% if form.non_field_errors %}
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {% for error in form.non_field_errors %}
-                                    {{ error }}
-                                {% endfor %}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        {% endif %}
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="{{ form.hospital.id_for_label }}" class="font-weight-bold">
-                                    <i class="fas fa-hospital mr-1"></i>Hospital
-                                </label>
-                                {{ form.hospital }}
-                                {% if form.hospital.errors %}
-                                    <div class="invalid-feedback d-block">
-                                        {{ form.hospital.errors|striptags }}
-                                    </div>
-                                {% endif %}
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="{{ form.test.id_for_label }}" class="font-weight-bold">
-                                    <i class="fas fa-vial mr-1"></i>Test
-                                </label>
-                                {{ form.test }}
-                                {% if form.test.errors %}
-                                    <div class="invalid-feedback d-block">
-                                        {{ form.test.errors|striptags }}
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="{{ form.price.id_for_label }}" class="font-weight-bold">
-                                    <i class="fas fa-tag mr-1"></i>Price (Taka)
-                                </label>
-                                <div class="input-group">
-                                    
-                                    {{ form.price }}
-                                </div>
-                                {% if form.price.errors %}
-                                    <div class="invalid-feedback d-block">
-                                        {{ form.price.errors|striptags }}
-                                    </div>
-                                {% endif %}
-                                <small class="form-text text-muted">Enter the test price in Taka</small>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label class="font-weight-bold d-block">
-                                    <i class="fas fa-check-circle mr-1"></i>Availability
-                                </label>
-                                <div class="custom-control custom-switch">
-                                    {{ form.availability }}
-                                    <label class="custom-control-label" for="{{ form.availability.id_for_label }}">
-                                        Currently Available
-                                    </label>
-                                </div>
-                                {% if form.availability.errors %}
-                                    <div class="invalid-feedback d-block">
-                                        {{ form.availability.errors|striptags }}
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-4">
-                            <button type="submit" class="btn btn-primary px-4 py-2">
-                                <i class="fas fa-save mr-2"></i>Save Test Availability
-                            </button>
-                            <a href="{% url 'test_available_list' %}" class="btn btn-outline-secondary px-4 py-2 ml-2">
-                                <i class="fas fa-times mr-2"></i>Cancel
-                            </a>
-                        </div>
-                    </form>
-                </div>
-                <div class="card-footer bg-light">
-                    <small class="text-muted">Last updated: {% now "F j, Y" %}</small>
+<div class="container">
+    <div class="test-availability-card">
+        <h2 class="test-availability-header">Test Availability Management</h2>
+        
+        <form method="POST" class="test-availability-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label>Hospital</label>
+                {{ form.hospital }}
+            </div>
+            
+            <div class="form-group">
+                <label>Price (Taka)</label>
+                {{ form.price }}
+                <small class="form-text">Enter the test price in Taka</small>
+            </div>
+            
+            <div class="form-group">
+                <label>Test</label>
+                {{ form.test }}
+            </div>
+            
+            <div class="form-group">
+                <label>Availability</label>
+                <div class="d-flex align-items-center">
+                    <div class="custom-control custom-switch mr-2">
+                        {{ form.availability }}
+                    </div>
+                    <span>Currently Available</span>
                 </div>
             </div>
-        </div>
+
+            <div class="form-actions">
+                <a href="{% url 'test_available_list' %}" class="btn btn-cancel">Cancel</a>
+                <button type="submit" class="btn btn-save">Save Test Availability</button>
+            </div>
+        </form>
     </div>
 </div>
 {% endblock %}
 
+
+
 {% block scripts %}
 <script>
-// Client-side form validation
-(function() {
-    'use strict';
-    window.addEventListener('load', function() {
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
-        // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
+document.addEventListener('DOMContentLoaded', function() {
+    // Price validation
+    const priceField = document.getElementById('{{ form.price.id_for_label }}');
+    if (priceField) {
+        priceField.addEventListener('input', function(e) {
+            if (this.value < 0) {
+                this.setCustomValidity('Price cannot be negative');
+            } else {
+                this.setCustomValidity('');
+            }
         });
-    }, false);
-})();
+    }
 
-// Price field validation
-document.getElementById('{{ form.price.id_for_label }}').addEventListener('input', function(e) {
-    if (this.value < 0) {
-        this.setCustomValidity('Price cannot be negative');
-    } else {
-        this.setCustomValidity('');
+    // Form validation
+    const form = document.querySelector('.test-availability-form');
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        });
     }
 });
 </script>

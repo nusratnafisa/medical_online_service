@@ -1,11 +1,28 @@
+body.amb-req-s {
+  
+  background-color: #e7fff3;  /* Use any color you prefer */
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Default Background for Other Pages */
+body.default {
+  background-color: #ffffff;  /* Light color or fallback background */
+  min-height: 100vh;
+}
 /* Success Container */
 .success-container {
+ 
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
     padding: 20px;
-    background-color: #f8fafc;
+    
   }
   
   /* Success Card */
@@ -41,7 +58,11 @@
     margin-bottom: 30px;
     line-height: 1.5;
   }
-  
+  .btn{
+    background-color: #1d70ab;
+    
+    padding: 0.75rem 1.75rem;
+  }
   /* Home Button - Primary action button */
 .home-btn {
     display: inline-flex;
@@ -49,7 +70,7 @@
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 1.75rem;
-    background-color: #3b82f6;
+    background-color: #1d70ab;
     color: white;
     border-radius: 8px;
     font-size: 1rem;
@@ -59,7 +80,7 @@
   }
   
   .home-btn:hover {
-    background-color: #2563eb;
+    background-color: #1fa6d3;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
   }
@@ -91,3 +112,82 @@
         font-size: 0.95rem;
       }
   }
+
+
+  /* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Space between buttons */
+  margin-top: 2rem;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+/* View My Requests Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background-color: #1d70ab;
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+ 
+/* Home Button */
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background-color: #1d70ab;
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #1fa6d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(49, 185, 234, 0.25);
+}
+
+.home-btn:hover {
+  background-color: #1fa6d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .button-container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .btn,
+  .home-btn {
+    width: 100%;
+    max-width: 250px;
+    padding: 0.65rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .me-md-2 {
+    margin-right: 0 !important;
+  }
+}

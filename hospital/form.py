@@ -5,3 +5,5 @@ class HospitalForm(forms.ModelForm):
     class Meta:
         model = Hospital
         fields = '__all__'
+
+        

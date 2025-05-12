@@ -6,14 +6,15 @@ from django.db import models
 # doctor profile e show korbe
 # doctor list show korbe db table doctor
 class Doctor(models.Model):
-    name = models.TextField(blank=True, null=True)
+    name = models.CharField(max_length=200 ,blank=True, null=True)
     profile_pic = models.ImageField(upload_to='doc_img/',blank=True,null=True)
     gender = models.CharField(max_length=10, blank=True, null=True)
-    education = models.TextField(blank=True, null=True)  # institution name jekhane poralikha korse
-    specialization = models.TextField(blank=True, null=True)
-    Profession = models.TextField(blank=True, null=True)
-    chamber_address = models.TextField(blank=True, null=True)
+    education = models.CharField(max_length=200 ,blank=True, null=True)  # institution name jekhane poralikha korse
+    specialization = models.CharField(max_length=200 ,blank=True, null=True)
+    Profession = models.CharField(max_length=200 ,blank=True, null=True)
+    chamber_address = models.CharField(max_length=200 ,blank=True, null=True)
     city = models.CharField(max_length=100, blank=True, null=True)
+
 
     # Related hospitals through Dept model
     hospitals = models.ManyToManyField('hospital.Hospital', through='Dept')

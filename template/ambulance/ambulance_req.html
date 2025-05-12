@@ -1,6 +1,9 @@
 {% extends 'base.html'%}
 {% load static %}
+{% block body_class %}ambulance_req{% endblock %}
 {% block content %}
+
+
 
 <div class="ambulance-request-container">
   <div class="ambulance-header">
@@ -43,7 +46,7 @@
       </div>
     </div>
 
-
+ 
 
     <button type="submit" class="submit-request-btn">
       <i class="fas fa-paper-plane"></i> Send a Request
@@ -53,5 +56,5 @@
     </a>
   </form>
 </div>
-
+ 
 {% endblock %}

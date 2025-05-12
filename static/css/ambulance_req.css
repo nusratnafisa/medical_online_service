@@ -1,3 +1,19 @@
+body.ambulance_req {
+  
+  background-color: #ddedff;  /* Use any color you prefer */
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Default Background for Other Pages */
+body.default {
+  background-color: #ffffff;  /* Light color or fallback background */
+  min-height: 100vh;
+}
 /* Ambulance Request Form */
 .ambulance-request-container {
   max-width: 800px;
@@ -81,7 +97,7 @@
 }*/
 
 .submit-request-btn {
-  background: #3c91ea;
+  background: #1d70ab;
   color: white;
   border: none;
   padding: 14px;
@@ -105,7 +121,7 @@
 
 /* My Ambulance Requests Button */
 .my-requests-btn {
-  background: #3c91ea;
+  background: #1d70ab;
   color: white;
   border: none;
   padding: 14px;
@@ -122,6 +138,7 @@
 }
 
 .my-requests-btn:hover {
+  text-decoration: none;
   background: #3aa3d8;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);

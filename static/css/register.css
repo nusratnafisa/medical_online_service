@@ -1,95 +1,176 @@
-/* Registration Container */
-.registration-container {
-    max-width: 500px;
-    margin: 2rem auto;
-    padding: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+body.reg-page {
+  
+    background-color: #e6faff;  /* Use any color you prefer */
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
   }
   
-  /* Heading */
-  .registration-container h2 {
-    color: #1a4b8c;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+  /* Default Background for Other Pages */
+  body.default {
+    background-color: #ffffff;  /* Light color or fallback background */
+    min-height: 100vh;
+  }
+  /* Make the navbar transparent and position it behind */
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: transparent !important;
+      z-index: 1; /* Behind the registration form */
+      box-shadow: none !important;
   }
   
-  /* Form Styles */
+  /* Remove any padding/margin from main content */
+  .main-content {
+      padding: 0;
+      margin: 0;
+  }
+  
+  /* Background and overlay styles */
+  
+  
+  
+  .registration-container {
+      position: relative;
+      z-index: 3; /* Above overlay and navbar */
+      width: 90%;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      margin: 80px auto; /* Give space for navbar */
+  }
+  
+  /* Header styles */
+  .registration-header {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  
+  .registration-header h2 {
+      color: #2a7fba;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 5px;
+  }
+  
+  /* Form styles */
   .registration-form {
-    display: flex;
-    flex-direction: column;
+      margin-top: 20px;
   }
   
-  /* Form Fields */
-  .registration-form p {
-    margin-bottom: 1.25rem;
-    display: flex;
-    flex-direction: column;
+  .form-group {
+      margin-bottom: 20px;
   }
   
-  .registration-form label {
-    color: darkblue;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
+  .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+      font-size: 14px;
+      font-weight: 500;
   }
   
-  .registration-form input[type="text"],
-  .registration-form input[type="email"],
-  .registration-form input[type="password"] {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+  .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s;
   }
   
-  .registration-form input:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-    outline: none;
+  .form-group input:focus {
+      border-color: #2a7fba;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(42, 127, 186, 0.2);
   }
   
-  /* Error Messages */
+  /* Error messages */
   .errorlist {
-    color: #e74c3c;
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-    padding-left: 0;
-    list-style: none;
+      color: #e74c3c;
+      font-size: 13px;
+      margin-top: 5px;
+      list-style: none;
+      padding: 0;
   }
   
-  /* Button Styles */
+  /* Button styles */
   .register-btn {
-    padding: 0.75rem;
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 0.5rem;
-    width: 100%;
+      width: 100%;
+      padding: 12px;
+      background-color: #2a7fba;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
   }
   
   .register-btn:hover {
-    background-color: #2563eb;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+      background-color: #1e6fa3;
   }
   
-  /* Responsive Design */
-  @media (max-width: 600px) {
-    .registration-container {
-      padding: 1.5rem;
-      margin: 1rem;
-    }
-    
-    .registration-form p {
-      margin-bottom: 1rem;
-    }
+  /* Terms and login link */
+  .terms {
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+      margin: 20px 0;
+      line-height: 1.5;
   }
+  
+  .login-link {
+      text-align: center;
+      margin-top: 15px;
+  }
+  
+  .login-link a {
+      color: #2a7fba;
+      text-decoration: none;
+      font-weight: 500;
+  }
+  
+  /* Divider */
+  .divider {
+      height: 1px;
+      background: #ddd;
+      margin: 20px 0;
+  }
+  
+  /* Phone number field specific styling */
+  .phone-input {
+      display: flex;
+  }
+  
+  .phone-input select {
+      width: 80px;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px 0 0 8px;
+      background-color: #f5f5f5;
+  }
+  
+  .phone-input input {
+      border-radius: 0 8px 8px 0;
+      flex: 1;
+  }
+
+
+  
+
+
+
+
+
+  
+  

@@ -1,31 +1,51 @@
+/* Background for the Login Page only */
+body.login-page {
+  
+  background-color: #e6faff;  /* Use any color you prefer */
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Default Background for Other Pages */
+body.default {
+  background-color: #ffffff;  /* Light color or fallback background */
+  min-height: 100vh;
+}
+
 /* Login Container */
 .login-container {
   max-width: 500px;
   margin: 2rem auto;
-  padding: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 /* Heading */
 .login-container h2 {
-  color: #1a4b8c;
+  color: #1f3b73;
   text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 /* Error Message */
 .error-message {
-  color: #e74c3c;
+  color: #d93025;
   background-color: #fdecea;
-  padding: 0.75rem;
-  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
   margin-bottom: 1.5rem;
   text-align: center;
   border: 1px solid #f5c6cb;
+  font-weight: 500;
 }
 
 /* Form Styles */
@@ -35,26 +55,29 @@
 }
 
 .login-form label {
-  color: darkblue;
+  color: #333;
   font-weight: 500;
   margin-bottom: 0.5rem;
+  font-size: 0.95rem;
 }
 
 .login-form input[type="text"],
 .login-form input[type="password"] {
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   font-size: 1rem;
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
   width: 100%;
+  background-color: #f9fafb;
 }
 
 .login-form input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
   outline: none;
+  background-color: #fff;
 }
 
 /* Button Styles */
@@ -67,12 +90,12 @@
 
 .login-btn {
   padding: 0.75rem;
-  background-color: #3b82f6;
-  color: white;
+  background-color: #2563eb;
+  color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
@@ -80,36 +103,36 @@
 }
 
 .login-btn:hover {
-  background-color: #2563eb;
+  background-color: #1d4ed8;
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
 }
 
+/* Register Button */
 .register-btn {
-  /*display: inline-block;*/
   padding: 0.75rem;
-  background-color: #3b82f6;
+  background-color: #1f2937;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   text-align: center;
-  /*text-decoration: none;*/
   transition: all 0.3s ease;
 }
 
 .register-btn:hover {
-  background-color: #2563eb;
+  background-color: #111827;
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.2);
 }
 
+/* Register Prompt */
 .register-prompt {
   text-align: center;
   color: #6b7280;
-  margin: 1rem 0;
+  margin: 1.5rem 0 0;
   font-size: 0.9rem;
 }
 
@@ -117,6 +140,6 @@
 @media (max-width: 600px) {
   .login-container {
     padding: 1.5rem;
-    margin: 1rem;
+    margin: 1.5rem;
   }
 }

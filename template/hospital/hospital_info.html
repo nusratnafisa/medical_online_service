@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block body_class %}hosp-info{% endblock %}
 {% block content %}
 <div class="hospital-detail-container">
 
@@ -19,7 +19,7 @@
     <p><strong>Email:</strong> {{hospitals.email }}</p>
   </div>
 
-  <a href="{% url 'hospital_list' %}" class="btn btn-primary"> Back to Hospital List</a>
+  <a href="{% url 'hospital_list' %}" class="btn "> Back to Hospital List</a>
 
 </div>
 {% endblock %}

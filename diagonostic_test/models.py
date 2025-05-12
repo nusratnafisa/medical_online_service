@@ -4,8 +4,9 @@ from hospital.models import Hospital
 #test info
 class Test(models.Model):
     name = models.CharField(max_length=100,blank=True, null= True)
-    description = models.TextField(blank=True, null= True)
+    description = models.CharField(max_length=100, blank=True, null=True)
 
+                                   
     # Many-to-Many with Hospital using TestAvailability as a middle table
     hospital = models.ManyToManyField(Hospital, through='TestAvailability')
     def __str__(self):

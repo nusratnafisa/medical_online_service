@@ -1,5 +1,22 @@
+body.book-appointment {
+  
+  background-color: #e6faff;  /* Use any color you prefer */
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Default Background for Other Pages */
+body.default {
+  background-color: #ffffff;  /* Light color or fallback background */
+  min-height: 100vh;
+}
 /* Main Container */
 .appointment-container {
+  background-color:;
     max-width: 1000px;
     margin: 30px auto;
     display: grid;
@@ -162,7 +179,7 @@
 
 
 
-
+ 
 /* ===== OVERRIDE EVERYTHING - STACKED LAYOUT ===== */
 .appointment-container {
   display: block !important; /* Kills grid/flex */
@@ -209,9 +226,9 @@
 
 /* ===== VIBRANT HOSPITAL COLOR SCHEME ===== */
 .appointment-container {
-  background-color: #f8fafc; /* Very light blue-gray */
+  /* Very light blue-gray */
   border-radius: 12px;
-  box-shadow: 0 4px 30px rgba(0, 120, 180, 0.08);
+  
 }
 
 /* Doctor Profile Section */
@@ -281,7 +298,7 @@
 /* Responsive Tweaks */
 @media (max-width: 768px) {
   .appointment-container {
-    background-color: white;
+ 
     box-shadow: none;
   }
 }
