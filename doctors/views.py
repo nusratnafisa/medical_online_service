@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.shortcuts import render,redirect
 from .models import Doctor,Dept
 from .form import DoctorForm
@@ -49,6 +50,7 @@ def doctor_list(request):
         }
     }
     return render(request, template_name='doctors/doctor_list.html', context=context)
+
 
 @login_required
 def upload_doctor(request):
