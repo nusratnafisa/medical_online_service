@@ -1,4 +1,20 @@
 /* Privacy Policy Container */
+body.privacy_policy {
+
+  background-color: #edfbff;  /* Use any color you prefer */
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Default Background for Other Pages */
+body.default {
+  background-color: #ffffff;  /* Light color or fallback background */
+  min-height: 100vh;
+}
 .privacy-container {
     max-width: 800px;
     margin: 2rem auto;
